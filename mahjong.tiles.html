@@ -1,0 +1,1616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mahjong.tiles</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mahjong.html"><font color="#ffffff">mahjong</font></a>.tiles</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/darkfeline/Code/Python/PyRiichi/mahjong/tiles.py">/home/darkfeline/Code/Python/PyRiichi/mahjong/tiles.py</a></font></td></tr></table>
+    <p><tt>Reference<br>
+&nbsp;<br>
+0&nbsp;<a href="#P1">P1</a><br>
+1&nbsp;<a href="#P2">P2</a><br>
+2&nbsp;<a href="#P3">P3</a><br>
+3&nbsp;<a href="#P4">P4</a><br>
+4&nbsp;<a href="#P5">P5</a><br>
+5&nbsp;<a href="#P6">P6</a><br>
+6&nbsp;<a href="#P7">P7</a><br>
+7&nbsp;<a href="#P8">P8</a><br>
+8&nbsp;<a href="#P9">P9</a><br>
+9&nbsp;<a href="#S1">S1</a><br>
+10&nbsp;<a href="#S2">S2</a><br>
+11&nbsp;<a href="#S3">S3</a><br>
+12&nbsp;<a href="#S4">S4</a><br>
+13&nbsp;<a href="#S5">S5</a><br>
+14&nbsp;<a href="#S6">S6</a><br>
+15&nbsp;<a href="#S7">S7</a><br>
+16&nbsp;<a href="#S8">S8</a><br>
+17&nbsp;<a href="#S9">S9</a><br>
+18&nbsp;<a href="#M1">M1</a><br>
+19&nbsp;<a href="#M2">M2</a><br>
+20&nbsp;<a href="#M3">M3</a><br>
+21&nbsp;<a href="#M4">M4</a><br>
+22&nbsp;<a href="#M5">M5</a><br>
+23&nbsp;<a href="#M6">M6</a><br>
+24&nbsp;<a href="#M7">M7</a><br>
+25&nbsp;<a href="#M8">M8</a><br>
+26&nbsp;<a href="#M9">M9</a><br>
+27&nbsp;<a href="#E">E</a><br>
+28&nbsp;<a href="#S">S</a><br>
+29&nbsp;<a href="#W">W</a><br>
+30&nbsp;<a href="#N">N</a><br>
+31&nbsp;<a href="#W">W</a><br>
+32&nbsp;<a href="#G">G</a><br>
+33&nbsp;<a href="#R">R</a></tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#Tile">Tile</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#E">E</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#G">G</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M1">M1</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M2">M2</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M3">M3</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M4">M4</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M5">M5</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M5R">M5R</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M6">M6</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M7">M7</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M8">M8</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#M9">M9</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#N">N</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P1">P1</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P2">P2</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P3">P3</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P4">P4</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P5">P5</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P5R">P5R</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P6">P6</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P7">P7</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P8">P8</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#P9">P9</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#R">R</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S">S</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S1">S1</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S2">S2</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S3">S3</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S4">S4</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S5">S5</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S5R">S5R</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S6">S6</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S7">S7</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S8">S8</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#S9">S9</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#W">W</a>
+</font></dt><dt><font face="helvetica, arial"><a href="mahjong.tiles.html#Wh">Wh</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="E">class <strong>E</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#E">E</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="E-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="E-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="E-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="E-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="E-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="G">class <strong>G</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#G">G</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="G-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="G-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="G-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="G-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="G-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M1">class <strong>M1</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M1">M1</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M1-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M1-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M1-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M1-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M1-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M2">class <strong>M2</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M2">M2</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M2-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M2-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M2-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M2-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M2-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M3">class <strong>M3</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M3">M3</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M3-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M3-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M3-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M3-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M3-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M4">class <strong>M4</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M4">M4</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M4-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M4-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M4-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M4-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M4-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M5">class <strong>M5</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M5">M5</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M5-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M5-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M5-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M5-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M5-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M5R">class <strong>M5R</strong></a>(<a href="mahjong.tiles.html#M5">M5</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M5R">M5R</a></dd>
+<dd><a href="mahjong.tiles.html#M5">M5</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M5R-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M5R-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M5R-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M5R-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M5R-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M6">class <strong>M6</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M6">M6</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M6-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M6-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M6-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M6-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M6-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M7">class <strong>M7</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M7">M7</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M7-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M7-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M7-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M7-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M7-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M8">class <strong>M8</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M8">M8</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M8-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M8-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M8-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M8-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M8-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="M9">class <strong>M9</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#M9">M9</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="M9-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="M9-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M9-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="M9-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="M9-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="N">class <strong>N</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#N">N</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="N-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="N-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="N-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="N-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="N-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P1">class <strong>P1</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P1">P1</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P1-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P1-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P1-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P1-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P1-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P2">class <strong>P2</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P2">P2</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P2-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P2-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P2-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P2-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P2-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P3">class <strong>P3</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P3">P3</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P3-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P3-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P3-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P3-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P3-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P4">class <strong>P4</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P4">P4</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P4-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P4-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P4-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P4-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P4-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P5">class <strong>P5</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P5">P5</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P5-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P5-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P5-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P5-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P5-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P5R">class <strong>P5R</strong></a>(<a href="mahjong.tiles.html#P5">P5</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P5R">P5R</a></dd>
+<dd><a href="mahjong.tiles.html#P5">P5</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P5R-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P5R-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P5R-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P5R-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P5R-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P6">class <strong>P6</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P6">P6</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P6-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P6-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P6-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P6-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P6-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P7">class <strong>P7</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P7">P7</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P7-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P7-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P7-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P7-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P7-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P8">class <strong>P8</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P8">P8</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P8-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P8-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P8-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P8-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P8-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="P9">class <strong>P9</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#P9">P9</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="P9-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="P9-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P9-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="P9-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="P9-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="R">class <strong>R</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#R">R</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="R-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="R-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="R-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="R-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="R-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S">class <strong>S</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S">S</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S1">class <strong>S1</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S1">S1</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S1-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S1-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S1-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S1-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S1-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S2">class <strong>S2</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S2">S2</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S2-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S2-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S2-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S2-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S2-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S3">class <strong>S3</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S3">S3</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S3-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S3-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S3-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S3-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S3-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S4">class <strong>S4</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S4">S4</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S4-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S4-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S4-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S4-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S4-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S5">class <strong>S5</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S5">S5</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S5-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S5-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S5-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S5-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S5-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S5R">class <strong>S5R</strong></a>(<a href="mahjong.tiles.html#S5">S5</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S5R">S5R</a></dd>
+<dd><a href="mahjong.tiles.html#S5">S5</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S5R-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S5R-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S5R-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S5R-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S5R-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S6">class <strong>S6</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S6">S6</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S6-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S6-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S6-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S6-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S6-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S7">class <strong>S7</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S7">S7</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S7-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S7-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S7-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S7-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S7-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S8">class <strong>S8</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S8">S8</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S8-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S8-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S8-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S8-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S8-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="S9">class <strong>S9</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#S9">S9</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="S9-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="S9-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S9-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="S9-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="S9-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Tile">class <strong>Tile</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Tile">Tile</a>&nbsp;class.<br>
+Universal&nbsp;attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;of&nbsp;tile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;suit&nbsp;i.e.&nbsp;"PINZU",&nbsp;"SOUZU",&nbsp;"MANZU",&nbsp;"WINDS",&nbsp;"DRAGONS"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cmpval<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unique&nbsp;value&nbsp;for&nbsp;each&nbsp;tile,&nbsp;for&nbsp;sorting<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;numbered&nbsp;Tiles:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;numeric&nbsp;value&nbsp;of&nbsp;tile<br>
+&nbsp;<br>
+Flags<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Flags&nbsp;are&nbsp;set&nbsp;to&nbsp;1&nbsp;arbitrarily&nbsp;or&nbsp;unset&nbsp;to&nbsp;denote&nbsp;attributes&nbsp;of&nbsp;tiles.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Properties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terminal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;red<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Scoring<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chi<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Tile">Tile</a>&nbsp;is&nbsp;part&nbsp;of&nbsp;declared&nbsp;chi<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Tile">Tile</a>&nbsp;is&nbsp;part&nbsp;of&nbsp;declared&nbsp;pon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Tile">Tile</a>&nbsp;is&nbsp;part&nbsp;of&nbsp;open&nbsp;declared&nbsp;kan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ckan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Tile">Tile</a>&nbsp;is&nbsp;part&nbsp;of&nbsp;concealed&nbsp;declared&nbsp;kan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addedkan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Tile">Tile</a>&nbsp;is&nbsp;part&nbsp;of&nbsp;a&nbsp;declared&nbsp;pon&nbsp;that&nbsp;has&nbsp;been&nbsp;extended&nbsp;into&nbsp;a&nbsp;kan.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pon&nbsp;flags&nbsp;are&nbsp;unset&nbsp;(del&nbsp;tile.pon)&nbsp;and&nbsp;kan&nbsp;flags&nbsp;are&nbsp;set&nbsp;for&nbsp;ease&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scoring.&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;last<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last&nbsp;tile;&nbsp;winning&nbsp;tile.&nbsp;&nbsp;In&nbsp;addition,&nbsp;has&nbsp;either&nbsp;the&nbsp;tag&nbsp;ron&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tsumo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ron<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;with&nbsp;last;&nbsp;win&nbsp;by&nbsp;discard<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tsumo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;with&nbsp;last;&nbsp;win&nbsp;by&nbsp;self-pick<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hidden<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;flag&nbsp;is&nbsp;set&nbsp;when&nbsp;a&nbsp;player's&nbsp;discard&nbsp;has&nbsp;been&nbsp;claimed.&nbsp;&nbsp;Used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;facilitate&nbsp;calculating&nbsp;furiten&nbsp;but&nbsp;allow&nbsp;view&nbsp;to&nbsp;display&nbsp;player<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;discards&nbsp;accordingly.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Tile-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="Tile-__init__"><strong>__init__</strong></a>(self, name, type, cmpval)</dt></dl>
+
+<dl><dt><a name="Tile-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="Tile-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Tile-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="W">class <strong>W</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#W">W</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="W-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="W-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="W-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="W-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="W-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Wh">class <strong>Wh</strong></a>(<a href="mahjong.tiles.html#Tile">Tile</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="mahjong.tiles.html#Wh">Wh</a></dd>
+<dd><a href="mahjong.tiles.html#Tile">Tile</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Wh-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><a name="Wh-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="Wh-__ne__"><strong>__ne__</strong></a>(self, other)</dt><dd><tt>Compares&nbsp;tiles&nbsp;with&nbsp;cmpval&nbsp;attribute.</tt></dd></dl>
+
+<dl><dt><a name="Wh-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Wh-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Returns&nbsp;<a href="#Tile">Tile</a>.name</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="mahjong.tiles.html#Tile">Tile</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DRAGONS</strong> = [&lt;class 'mahjong.tiles.Wh'&gt;, &lt;class 'mahjong.tiles.G'&gt;, &lt;class 'mahjong.tiles.R'&gt;]<br>
+<strong>MANZU</strong> = [&lt;class 'mahjong.tiles.M1'&gt;, &lt;class 'mahjong.tiles.M2'&gt;, &lt;class 'mahjong.tiles.M3'&gt;, &lt;class 'mahjong.tiles.M4'&gt;, &lt;class 'mahjong.tiles.M5'&gt;, &lt;class 'mahjong.tiles.M6'&gt;, &lt;class 'mahjong.tiles.M7'&gt;, &lt;class 'mahjong.tiles.M8'&gt;, &lt;class 'mahjong.tiles.M9'&gt;]<br>
+<strong>PINZU</strong> = [&lt;class 'mahjong.tiles.P1'&gt;, &lt;class 'mahjong.tiles.P2'&gt;, &lt;class 'mahjong.tiles.P3'&gt;, &lt;class 'mahjong.tiles.P4'&gt;, &lt;class 'mahjong.tiles.P5'&gt;, &lt;class 'mahjong.tiles.P6'&gt;, &lt;class 'mahjong.tiles.P7'&gt;, &lt;class 'mahjong.tiles.P8'&gt;, &lt;class 'mahjong.tiles.P9'&gt;]<br>
+<strong>SOUZU</strong> = [&lt;class 'mahjong.tiles.S1'&gt;, &lt;class 'mahjong.tiles.S2'&gt;, &lt;class 'mahjong.tiles.S3'&gt;, &lt;class 'mahjong.tiles.S4'&gt;, &lt;class 'mahjong.tiles.S5'&gt;, &lt;class 'mahjong.tiles.S6'&gt;, &lt;class 'mahjong.tiles.S7'&gt;, &lt;class 'mahjong.tiles.S8'&gt;, &lt;class 'mahjong.tiles.S9'&gt;]<br>
+<strong>SUITS</strong> = [[&lt;class 'mahjong.tiles.P1'&gt;, &lt;class 'mahjong.tiles.P2'&gt;, &lt;class 'mahjong.tiles.P3'&gt;, &lt;class 'mahjong.tiles.P4'&gt;, &lt;class 'mahjong.tiles.P5'&gt;, &lt;class 'mahjong.tiles.P6'&gt;, &lt;class 'mahjong.tiles.P7'&gt;, &lt;class 'mahjong.tiles.P8'&gt;, &lt;class 'mahjong.tiles.P9'&gt;], [&lt;class 'mahjong.tiles.S1'&gt;, &lt;class 'mahjong.tiles.S2'&gt;, &lt;class 'mahjong.tiles.S3'&gt;, &lt;class 'mahjong.tiles.S4'&gt;, &lt;class 'mahjong.tiles.S5'&gt;, &lt;class 'mahjong.tiles.S6'&gt;, &lt;class 'mahjong.tiles.S7'&gt;, &lt;class 'mahjong.tiles.S8'&gt;, &lt;class 'mahjong.tiles.S9'&gt;], [&lt;class 'mahjong.tiles.M1'&gt;, &lt;class 'mahjong.tiles.M2'&gt;, &lt;class 'mahjong.tiles.M3'&gt;, &lt;class 'mahjong.tiles.M4'&gt;, &lt;class 'mahjong.tiles.M5'&gt;, &lt;class 'mahjong.tiles.M6'&gt;, &lt;class 'mahjong.tiles.M7'&gt;, &lt;class 'mahjong.tiles.M8'&gt;, &lt;class 'mahjong.tiles.M9'&gt;], [&lt;class 'mahjong.tiles.E'&gt;, &lt;class 'mahjong.tiles.S'&gt;, &lt;class 'mahjong.tiles.W'&gt;, &lt;class 'mahjong.tiles.N'&gt;], [&lt;class 'mahjong.tiles.Wh'&gt;, &lt;class 'mahjong.tiles.G'&gt;, &lt;class 'mahjong.tiles.R'&gt;]]<br>
+<strong>WINDS</strong> = [&lt;class 'mahjong.tiles.E'&gt;, &lt;class 'mahjong.tiles.S'&gt;, &lt;class 'mahjong.tiles.W'&gt;, &lt;class 'mahjong.tiles.N'&gt;]</td></tr></table>
+</body></html>
