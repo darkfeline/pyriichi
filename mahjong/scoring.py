@@ -144,7 +144,7 @@ def has_chi(hand, tile):
 
 def calc(fu, han, east, type, honba=0):
     """Calculates score from fu, han, taking into account who won and what type
-of win.  For tsumo non-east, returns a list where the first item is score for
+of win.  For tsumo non-east, returns a tuple where the first item is score for
 non-East, and the second item is score for East.
 
 Formula
@@ -205,8 +205,8 @@ honba
             score += honba * 100
             return score
         else:
-            score = [round(score) + (honba * 100), round(score * 2) + (honba *
-                                                                       100)]
+            score = (round(score) + (honba * 100), round(score * 2) + (honba *
+                                                                       100))
             return score
     else:
         raise ScoringException("calc", type + " is not a valid value for type")
@@ -439,7 +439,7 @@ empty list."""
 def score(east, winds, *sets, honba=0, bonus=[], dora=[], ura=[]):
     """Returns (score, yaku), where score is the score and yaku is the list of
 yaku matched, in all lower case, in Japanese.  For tsumo non-East, returns a
-list where the first item is score for non-East, and the second item is score
+tuple where the first item is score for non-East, and the second item is score
 for East.
 
 Assumes hand is complete and separated correctly.  Seven Pairs must be passed as

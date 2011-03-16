@@ -459,6 +459,10 @@ deal()
     cycle()---------
 abort()
 
+Implementation notes
+    Currently, only one person can declare agari.  Whoever is closest to east
+    wins Nagashi Mangan if there are two players who can win on it.  
+
 """
     def __init__(self, round_wind, dealer, honba, riichi_pot, players):
         """round_wind
@@ -582,7 +586,6 @@ player
                     bonus.append('chihou')
 
 
-        # Find all possible scores
         possible = mahjong.scoring.makesets(playeri.hand)
         # Add bonuses
         if len(self.wall) < 1:
@@ -598,6 +601,7 @@ player
         dora = self.wall.dora()
         ura = self.wall.ura()
 
+        # Find all possible scores
         scorelist = []
         for x in possible:
             y = playeri.sets[:]
@@ -634,15 +638,39 @@ player
             diff[player] = -sum(diff)
         except TypeError:
             for i in range(4):
-                diff[i] = -x[0]
+                diff[i] = -x
             diff[player] = 0
             diff[player] = -sum(diff)
 
-        self.scores = diff
+        self.scores = tuple(diff)
 
     def abort(self):
-        self.scores = [0, 0, 0, 0]
-
+        """Checks for Nagashi Mangan.  If a player satisfies conditions, wins
+        off Nagashi Mangan, else sets self.scores as zeroed tuple."""
+        for num, player in enumerate(self.players):
+            if scoring.isnagashi(player.discards):
+                if num == 0:
+                    east = 1
+                else:
+                    east = 0
+                winds = [self.round_wind, ['E', 'S', 'W', 'N'][num]]
+                score = scoring.score(east, winds, honba=self.honba,
+                                      bonus=['nagashi mangan']) 
+                diff = []
+                try:
+                    for i in range(1,4):
+                        diff[i] = -x[0]
+                    diff[0] = -x[1]
+                    diff[player] = 0
+                    diff[player] = -sum(diff)
+                except TypeError:
+                    for i in range(4):
+                        diff[i] = -x
+                    diff[player] = 0
+                    diff[player] = -sum(diff)
+                self.scores = tuple(diff)
+                return
+        self.scores = (0, 0, 0, 0)
 
     def pon(self, player):
         """Player calls current player's discard.

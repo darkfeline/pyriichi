@@ -8,7 +8,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="mahjong.html"><font color="#ffffff">mahjong</font></a>.model</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/darkfeline/Code/Python/PyRiichi/mahjong/model.py">/home/darkfeline/Code/Python/PyRiichi/mahjong/model.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/cygwin/home/p1%202010/pyriichi/mahjong/model.py">c:\cygwin\home\p1 2010\pyriichi\mahjong\model.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -162,7 +162,11 @@ Data descriptors defined here:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;|--&gt;<a href="#Hand-kan">kan</a>()------|<br>
 &nbsp;&nbsp;&nbsp;&nbsp;---&gt;<a href="#Hand-agari">agari</a>()&nbsp;&nbsp;&nbsp;&nbsp;|<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#Hand-cycle">cycle</a>()---------<br>
-<a href="#Hand-abort">abort</a>()<br>&nbsp;</tt></td></tr>
+<a href="#Hand-abort">abort</a>()<br>
+&nbsp;<br>
+Implementation&nbsp;notes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently,&nbsp;only&nbsp;one&nbsp;person&nbsp;can&nbsp;declare&nbsp;agari.&nbsp;&nbsp;Whoever&nbsp;is&nbsp;closest&nbsp;to&nbsp;east<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wins&nbsp;Nagashi&nbsp;Mangan&nbsp;if&nbsp;there&nbsp;are&nbsp;two&nbsp;players&nbsp;who&nbsp;can&nbsp;win&nbsp;on&nbsp;it.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Hand-__init__"><strong>__init__</strong></a>(self, round_wind, dealer, honba, riichi_pot, players)</dt><dd><tt>round_wind<br>
@@ -184,7 +188,8 @@ scores<br>
 yaku<br>
 &nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;yaku</tt></dd></dl>
 
-<dl><dt><a name="Hand-abort"><strong>abort</strong></a>(self)</dt></dl>
+<dl><dt><a name="Hand-abort"><strong>abort</strong></a>(self)</dt><dd><tt>Checks&nbsp;for&nbsp;Nagashi&nbsp;Mangan.&nbsp;&nbsp;If&nbsp;a&nbsp;player&nbsp;satisfies&nbsp;conditions,&nbsp;wins<br>
+off&nbsp;Nagashi&nbsp;Mangan,&nbsp;else&nbsp;sets&nbsp;self.<strong>scores</strong>&nbsp;as&nbsp;zeroed&nbsp;tuple.</tt></dd></dl>
 
 <dl><dt><a name="Hand-addkan"><strong>addkan</strong></a>(self, tile)</dt><dd><tt>Current&nbsp;player&nbsp;adds&nbsp;tile&nbsp;to&nbsp;pon.</tt></dd></dl>
 
