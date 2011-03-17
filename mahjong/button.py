@@ -2,10 +2,9 @@
 
 import pygame.sprite
 
-class Manager(pygame.sprite.Group):
+class ButtonManager(pygame.sprite.Group):
     def __init__(self, display, mediator):
-        pygame.sprite.Group.__init__()
-        self.listen_types = event.ButtonRequest,
+        pygame.sprite.Group.__init__(self)
         self.display = display
         self.mediator = mediator
         self.images = {}
@@ -27,7 +26,6 @@ class Manager(pygame.sprite.Group):
 
 class Controller:
     def __init__(self, eventmanager):
-        self.listen_types = event.ButtonControllerRequest, event.MouseEvent
         self.eventmanager = eventmanager
         self.buttons = []
         self.waiting = {}
@@ -65,3 +63,5 @@ pos
             self.eventmanger.post(tmp)
             self.eventmanager.post(self.clicked[2])
             self.clicked = None
+
+

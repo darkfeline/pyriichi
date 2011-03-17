@@ -17,7 +17,6 @@ class View:
 
 class TileBlitter:
     def __init__(self, display):
-        self.listen_types = event.TileBlitRequest,
         self.display = display
         images = []
         for img in ['1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '1s',
@@ -58,16 +57,9 @@ angle=0
             tiles.append(tmp)
         self.blit(loc, tiles, angle)
 
-    def notify(self, ev):
-        if ev.concealed:
-            self.blitc(ev.loc, len(ev.tiles), ev.angle)
-        else:
-            self.blit(ev.loc, ev.tiles, ev.angle)
-
 
 class TextBlitter:
     def __init__(self, display):
-        self.listen_types = event.TextBlitRequest,
         pygame.font.init()
         self.font = pygame.font.Font(None, 17)
         self.display = display
@@ -78,5 +70,4 @@ class TextBlitter:
         rect.topleft = loc
         self.display.blit(text, rect)
 
-    def notify(self, ev):
-        self.blit(ev.loc, ev.txt)
+

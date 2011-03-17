@@ -60,9 +60,9 @@ double
     
 """
         if self.riichi:
-            raise RiichiException(0, 1)
+            raise RiichiException("Player", "riichi", "already declared")
         if self.points >= 1000:
-            raise RiichiException(1)
+            raise RiichiException("Player", "riichi", "not enough points")
         self.points -= 1000
         self.riichi = 1
         self.ippatsu = 1
@@ -96,7 +96,7 @@ tiles
             self.sets.append(set)
             self.clear_draw()
         else:
-            raise ModelException("Player", "chi " + str(tiles))
+            raise ModelException("Player", "chi", str(tiles))
 
     def pon(self, tiles):
         """Form a declared pon with tiles in hand.  When taking a discard, the
@@ -115,7 +115,7 @@ tiles
             self.sets.append(set)
             self.clear_draw()
         else:
-            raise ModelException("Player", "pon " + str(tiles))
+            raise ModelException("Player", "pon ", str(tiles))
 
     def kan(self, tiles, wall):
         """Form a declared kan with tiles in hand.  When taking a discard, the
@@ -140,7 +140,7 @@ wall
             self.sort()
             self.current_draw = tile
         else:
-            raise ModelException("Player", "kan:" + str(tiles))
+            raise ModelException("Player", "kan", str(tiles))
 
     def ckan(self, tiles, wall):
         """Declares a concealed kan.
@@ -164,7 +164,7 @@ wall
             self.sort()
             self.current_draw = tile
         else:
-            raise ModelException("Player", "ckan:" + str(tiles))
+            raise ModelException("Player", "ckan", str(tiles))
 
     def addkan(self, tile, wall):
         """Adds tile to declared kan.
@@ -428,7 +428,7 @@ ModelException(self, "five kan")."""
             self.wall.append(self.main_wall.rdraw())
             return self.wall.pop(0)
         else:
-            raise ModelException(self, DeadWall, "five kan")
+            raise ModelException("DeadWall", "take", "five kan")
 
 
 class Dice:
@@ -842,28 +842,24 @@ original east's turn, cycle round wind."""
 
 
 class ModelException(Exception):
-    def __init__(self, cls, val):
-        """cls
-    class
-val
-    value of exception
-
-"""
-        self.cls = cls
-        self.val = val
+    def __init__(self, *vals):
+        self.vals = vals
 
     def __str__(self):
-        return str(self.cls) + ":" + repr(self.val)
+        x = ""
+        for i, j in enumerate(vals):
+            x += str(j)
+            if i != (len(vals) - 1):
+                x += ":"
+        return x
 
 
 class RiichiException(ModelException):
-    def __init__(self, no_points=0, already_declared=0):
-        self.val = (no_points, already_declared)
+    pass
 
 
 class WallEmptyException(ModelException):
-    def __init__(self):
-        pass
+    pass
 
 
 class ModelEvent:
