@@ -7,12 +7,32 @@ class View:
     def __init__(self):
         icon = pygame.image.load(os.path.join('images', 'tiles', '7z.gif'))
         pygame.display.set_icon(icon)
-        self.display = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption('PyMahjong')
+        self.display = pygame.display.set_mode((640, 480))
+        pygame.display.set_caption('PyRiichi')
         self.display.fill(pygame.Color('white'))
 
     def flip(self):
         pygame.display.flip()
+
+    def opening(self):
+        """Displays opening screen stuff."""
+        pass
+
+
+class BGBlitter:
+    def __init__(self, display):
+        self.display = display
+        self.images = pygame.image.load(os.path.join('images', 'textures',
+                                                     'felt.gif')),
+        self.size = self.images[0].get_size()
+        
+    def blit(self):
+        pass
+       # for x in range(display.get_width() // 
+
+
+class UIBlitter:
+    pass
 
 
 class TileBlitter:
@@ -26,6 +46,7 @@ class TileBlitter:
             images.append(pygame.image.load(os.path.join('images', 'tiles', img)
                                             + '.gif'))
         self.images = tuple(images)
+        self.size = images[0].get_size()
 
     def blit(self, loc, tiles, angle=0):
         """Blit tiles at loc.
@@ -38,12 +59,10 @@ angle=0
     degrees
     
 """
-        h, w = (47, 31)
-        x, y = (0, 0)
+        w, h = self.size  # dimensions of images
         surface = pygame.Surface((w * len(tiles), h))
-        for tile in tiles:
-            surface.blit(self.images[tile.cmpval], (x, y))
-            x += w
+        for num, tile in enumerate(tiles):
+            surface.blit(self.images[tile.cmpval], (w * num, 0))
         surface = pygame.transform.rotate(surface, angle)
         self.display.blit(surface, loc)
 
@@ -51,8 +70,8 @@ angle=0
         """Blit a number of concealed tile at a location."""
         tiles = []
         class tmp:
-            pass
-        tmp.cmpval = 34
+            def __init__(self):
+                self.cmpval = 34
         for i in range(num):
             tiles.append(tmp)
         self.blit(loc, tiles, angle)
