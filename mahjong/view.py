@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import pygame
 import os
+import pygame
 
 class View:
     def __init__(self):
@@ -10,25 +10,40 @@ class View:
         self.display = pygame.display.set_mode((640, 480))
         pygame.display.set_caption('PyRiichi')
         self.display.fill(pygame.Color('white'))
+        self.flip()
+
+        self.bgblitter = BGBlitter()
 
     def flip(self):
         pygame.display.flip()
 
     def opening(self):
         """Displays opening screen stuff."""
-        pass
+        self.display.fill(pygame.Color('green'))
+        self.flip()
+
+    def grid(self):
+        """Draws grid for easier placement of objects. 40x40"""
+        w, h = self.display.get_size()
+        for x in range(0, w, 40):
+            pygame.draw.line(self.display, pygame.Color("red"), (x, 0), (x, h))
+        for y in range(0, h, 40):
+            pygame.draw.line(self.display, pygame.Color("red"), (y, 0), (y, w))
 
 
 class BGBlitter:
-    def __init__(self, display):
-        self.display = display
+    def __init__(self):
+        self.display = pygame.display.get_surface()
         self.images = pygame.image.load(os.path.join('images', 'textures',
                                                      'felt.gif')),
         self.size = self.images[0].get_size()
         
     def blit(self):
-        pass
-       # for x in range(display.get_width() // 
+        w, h = self.display.get_size()
+        for x in range(0, w, 40):
+            for y in range(0, h, 40):
+                self.display.blit(self.images[0], (x, y))
+
 
 
 class UIBlitter:
@@ -36,8 +51,8 @@ class UIBlitter:
 
 
 class TileBlitter:
-    def __init__(self, display):
-        self.display = display
+    def __init__(self):
+        self.display = pygame.display.get_surface()
         images = []
         for img in ['1p', '2p', '3p', '4p', '5p', '6p', '7p', '8p', '9p', '1s',
                     '2s', '3s', '4s', '5s', '6s', '7s', '8s', '9s', '1m', '2m',
@@ -78,10 +93,10 @@ angle=0
 
 
 class TextBlitter:
-    def __init__(self, display):
+    def __init__(self):
         pygame.font.init()
         self.font = pygame.font.Font(None, 17)
-        self.display = display
+        self.display = pygame.display.get_surface()
 
     def blit(self, loc, txt):
         text = self.font.render(txt, True, (0, 0, 0), (255, 255, 255))

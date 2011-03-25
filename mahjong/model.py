@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import mahjong.scoring
-import mahjong.tiles
 import random
+import scoring
 
 class Player:
     def __init__(self, wind_num, points=25000):
@@ -71,7 +70,7 @@ double
 
     def sort(self):
         """Sort player's hand in place."""
-        mahjong.scoring.sort(self.hand)
+        scoring.sort(self.hand)
 
     def iscomplete(self):
         return scoring.iscomplete(self.hand)
@@ -211,7 +210,7 @@ wall
     def can_ckan(self):
         """Returns a list of lists of tiles with which the Player can declare
         concealed kan."""
-        count = mahjong.scoring.tocount(self.hand)
+        count = scoring.tocount(self.hand)
         possible = []
         for tilenum, num in enumerate(count):
             if num == 4:
@@ -243,7 +242,7 @@ of the tile."""
         else:
             val = tile.value
             start = ["PINZU", "SOUZU", "MANZU"].index(tile.type) * 9
-            count = mahjong.scoring.tocount(self.hand)[start:start + 9]
+            count = scoring.tocount(self.hand)[start:start + 9]
             count[val - 1] += 1
             a = 0
             result = 0
@@ -586,7 +585,7 @@ player
                     bonus.append('chihou')
 
 
-        possible = mahjong.scoring.makesets(playeri.hand)
+        possible = scoring.makesets(playeri.hand)
         # Add bonuses
         if len(self.wall) < 1:
             bonus.append("haitei")
@@ -607,7 +606,7 @@ player
             y = playeri.sets[:]
             y.extend(x)
             scorelist.append(
-                mahjong.scoring.score(
+                scoring.score(
                     east, winds, *y, honba=self.honba, bonus=bonus,
                     dora=dora, ura=ura
                 )

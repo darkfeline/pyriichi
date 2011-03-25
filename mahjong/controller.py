@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import pygame
-import mahjong.cpu
+import cpu
 
 class Controller:
     def __init__(self, mediator):
         self.listen_types = (cpu.TickEvent,)
-        self.mediator = mahjong.mediator.Mediator()
+        self.mediator = mediator.Mediator()
     def notify(self, ev):
         if isinstance(ev, cpu.TickEvent):
             for ev in pygame.event.get():

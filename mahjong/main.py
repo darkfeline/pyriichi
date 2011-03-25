@@ -2,15 +2,15 @@
 
 import pygame
 import mahjong.cpu
-import mahjong.mediator
+import mahjong.events
 import mahjong.controller
 import mahjong.view
 import mahjong.model
 
 def main():
     # init stuff
-    mediator = mahjong.mediator.Mediator()
-    cpu = cpu.CPU(mediator)
+    em = mahjong.events.EventManager()
+    cpu = cpu.CPU(em)
 
     cpu.run()
 

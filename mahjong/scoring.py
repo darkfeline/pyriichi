@@ -19,7 +19,8 @@ count
 
 from __future__ import division
 import math
-import mahjong.tiles
+
+import tiles
 
 def sort(hand):
     """Sort list of tiles in place."""
