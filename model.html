@@ -1,0 +1,569 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module model</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>model</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/darkfeline/Code/Python/pyriichi/mahjong/model.py">/home/darkfeline/Code/Python/pyriichi/mahjong/model.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="scoring.html">scoring</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#ModelException">ModelException</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#RiichiException">RiichiException</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#WallEmptyException">WallEmptyException</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#DeadWall">DeadWall</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#Dice">Dice</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#Game">Game</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#Hand">Hand</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#ModelEvent">ModelEvent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#Player">Player</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#Wall">Wall</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DeadWall">class <strong>DeadWall</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DeadWall">DeadWall</a>&nbsp;class;&nbsp;intended&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;part&nbsp;of&nbsp;<a href="#Wall">Wall</a>&nbsp;class.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DeadWall-__init__"><strong>__init__</strong></a>(self, tiles, main_wall)</dt><dd><tt>tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tiles&nbsp;for&nbsp;dead&nbsp;wall<br>
+main_wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reference&nbsp;to&nbsp;main&nbsp;<a href="#Wall">Wall</a>&nbsp;instance&nbsp;that&nbsp;created&nbsp;this&nbsp;<a href="#DeadWall">DeadWall</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="DeadWall-__len__"><strong>__len__</strong></a>(self)</dt><dd><tt>Returns&nbsp;number&nbsp;of&nbsp;tiles&nbsp;in&nbsp;wall.</tt></dd></dl>
+
+<dl><dt><a name="DeadWall-can_kan"><strong>can_kan</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;kans&nbsp;may&nbsp;still&nbsp;be&nbsp;declared&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="DeadWall-dora"><strong>dora</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;dora&nbsp;indicator&nbsp;tiles.</tt></dd></dl>
+
+<dl><dt><a name="DeadWall-take"><strong>take</strong></a>(self)</dt><dd><tt>Pops&nbsp;a&nbsp;tile&nbsp;for&nbsp;kan&nbsp;replacement,&nbsp;also&nbsp;taking&nbsp;replacement&nbsp;tile&nbsp;from<br>
+main&nbsp;wall&nbsp;and&nbsp;adding&nbsp;dora.&nbsp;&nbsp;If&nbsp;no&nbsp;more&nbsp;replacement&nbsp;tiles,&nbsp;raises<br>
+<a href="#ModelException">ModelException</a>(self,&nbsp;"five&nbsp;kan").</tt></dd></dl>
+
+<dl><dt><a name="DeadWall-ura"><strong>ura</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;ura-dora&nbsp;indicator&nbsp;tiles.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Dice">class <strong>Dice</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Two&nbsp;six-sided&nbsp;die.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Dice-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Dice-roll"><strong>roll</strong></a>(self)</dt><dd><tt>Returns&nbsp;2d6</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Game">class <strong>Game</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Calls&nbsp;<a href="#Game">Game</a>.reset</tt></dd></dl>
+
+<dl><dt><a name="Game-cycle"><strong>cycle</strong></a>(self)</dt><dd><tt>Cycles&nbsp;current&nbsp;dealer&nbsp;and&nbsp;each&nbsp;player's&nbsp;wind.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;again&nbsp;the<br>
+original&nbsp;east's&nbsp;turn,&nbsp;cycle&nbsp;round&nbsp;wind.</tt></dd></dl>
+
+<dl><dt><a name="Game-end_hand"><strong>end_hand</strong></a>(self)</dt><dd><tt>Kills&nbsp;current&nbsp;hand&nbsp;instance&nbsp;and&nbsp;grabs&nbsp;information.</tt></dd></dl>
+
+<dl><dt><a name="Game-has_hand"><strong>has_hand</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;a&nbsp;hand&nbsp;instance&nbsp;currently&nbsp;exists&nbsp;and&nbsp;False<br>
+otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Game-reset"><strong>reset</strong></a>(self)</dt><dd><tt>Reset&nbsp;round&nbsp;wind,&nbsp;dealer,&nbsp;honba,&nbsp;riichi&nbsp;pot,&nbsp;players</tt></dd></dl>
+
+<dl><dt><a name="Game-start_hand"><strong>start_hand</strong></a>(self)</dt><dd><tt>Returns&nbsp;hand;&nbsp;creates&nbsp;hand&nbsp;instance&nbsp;if&nbsp;none&nbsp;exists.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Hand">class <strong>Hand</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Hand">Hand</a>&nbsp;Flow&nbsp;Diagram<br>
+&nbsp;<br>
+<a href="#Hand-__init__">__init__</a>()<br>
+<a href="#Hand-deal">deal</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Hand-draw">draw</a>()&lt;---------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--&gt;<a href="#Hand-addkan">addkan</a>()&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|--&gt;...&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--&gt;<a href="#Hand-ckan">ckan</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;|--&gt;...&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;---&gt;<a href="#Hand-agari">agari</a>()&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Hand-discard">discard</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--&gt;<a href="#Hand-chi">chi</a>()------|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--&gt;<a href="#Hand-pon">pon</a>()------|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|--&gt;<a href="#Hand-kan">kan</a>()------|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;---&gt;<a href="#Hand-agari">agari</a>()&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Hand-cycle">cycle</a>()---------<br>
+<a href="#Hand-abort">abort</a>()<br>
+&nbsp;<br>
+Implementation&nbsp;notes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Currently,&nbsp;only&nbsp;one&nbsp;person&nbsp;can&nbsp;declare&nbsp;agari.&nbsp;&nbsp;Whoever&nbsp;is&nbsp;closest&nbsp;to&nbsp;east<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wins&nbsp;Nagashi&nbsp;Mangan&nbsp;if&nbsp;there&nbsp;are&nbsp;two&nbsp;players&nbsp;who&nbsp;can&nbsp;win&nbsp;on&nbsp;it.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Hand-__init__"><strong>__init__</strong></a>(self, round_wind, dealer, honba, riichi_pot, players)</dt><dd><tt>round_wind<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;round&nbsp;wind&nbsp;as&nbsp;an&nbsp;int&nbsp;in&nbsp;range(4)<br>
+dealer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;dealer&nbsp;as&nbsp;int&nbsp;in&nbsp;range(4)<br>
+honba<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;repeat&nbsp;counters<br>
+riichi_pot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;points&nbsp;in&nbsp;riichi&nbsp;pot<br>
+players<br>
+&nbsp;&nbsp;&nbsp;&nbsp;original&nbsp;player&nbsp;list.&nbsp;&nbsp;<a href="#Hand">Hand</a>&nbsp;will&nbsp;reorder&nbsp;hand&nbsp;internally&nbsp;so&nbsp;that&nbsp;the&nbsp;dealer&nbsp;is&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;item.<br>
+&nbsp;<br>
+Attributes&nbsp;set&nbsp;after&nbsp;winning:<br>
+&nbsp;<br>
+scores<br>
+&nbsp;&nbsp;&nbsp;&nbsp;changes&nbsp;in&nbsp;score&nbsp;for&nbsp;all&nbsp;players<br>
+yaku<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;yaku</tt></dd></dl>
+
+<dl><dt><a name="Hand-abort"><strong>abort</strong></a>(self)</dt><dd><tt>Checks&nbsp;for&nbsp;Nagashi&nbsp;Mangan.&nbsp;&nbsp;If&nbsp;a&nbsp;player&nbsp;satisfies&nbsp;conditions,&nbsp;wins<br>
+off&nbsp;Nagashi&nbsp;Mangan,&nbsp;else&nbsp;sets&nbsp;self.<strong>scores</strong>&nbsp;as&nbsp;zeroed&nbsp;tuple.</tt></dd></dl>
+
+<dl><dt><a name="Hand-addkan"><strong>addkan</strong></a>(self, tile)</dt><dd><tt>Current&nbsp;player&nbsp;adds&nbsp;tile&nbsp;to&nbsp;pon.</tt></dd></dl>
+
+<dl><dt><a name="Hand-agari"><strong>agari</strong></a>(self, player)</dt><dd><tt><a href="#Player">Player</a>&nbsp;calls&nbsp;win&nbsp;on&nbsp;current&nbsp;player's&nbsp;discard&nbsp;or&nbsp;self-draw.<br>
+&nbsp;<br>
+Finds&nbsp;and&nbsp;scores&nbsp;all&nbsp;possible&nbsp;sets&nbsp;and&nbsp;uses&nbsp;highest&nbsp;score.&nbsp;&nbsp;Sets&nbsp;self.<strong>scores</strong><br>
+with&nbsp;array&nbsp;of&nbsp;score&nbsp;differences&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;parent&nbsp;<a href="#Game">Game</a>&nbsp;class.&nbsp;&nbsp;<br>
+&nbsp;<br>
+player<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;by&nbsp;index&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Hand-chi"><strong>chi</strong></a>(self, tiles)</dt><dd><tt><a href="#Player">Player</a>&nbsp;calls&nbsp;current&nbsp;player's&nbsp;discard.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;two&nbsp;tiles&nbsp;with&nbsp;which&nbsp;the&nbsp;current&nbsp;discard&nbsp;is&nbsp;to&nbsp;form&nbsp;a&nbsp;chi</tt></dd></dl>
+
+<dl><dt><a name="Hand-ckan"><strong>ckan</strong></a>(self, tiles)</dt><dd><tt>Current&nbsp;player&nbsp;declares&nbsp;concealed&nbsp;kan.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tiles&nbsp;that&nbsp;compose&nbsp;the&nbsp;kan</tt></dd></dl>
+
+<dl><dt><a name="Hand-cycle"><strong>cycle</strong></a>(self)</dt><dd><tt>Ends&nbsp;player&nbsp;turn&nbsp;by&nbsp;resetting&nbsp;flags&nbsp;and&nbsp;cycling&nbsp;to&nbsp;the&nbsp;next<br>
+player.</tt></dd></dl>
+
+<dl><dt><a name="Hand-deal"><strong>deal</strong></a>(self)</dt><dd><tt>Rolls&nbsp;dice&nbsp;and&nbsp;calls&nbsp;<a href="#Wall">Wall</a>.<a href="#Hand-deal">deal</a>().</tt></dd></dl>
+
+<dl><dt><a name="Hand-discard"><strong>discard</strong></a>(self, tile)</dt><dd><tt>If&nbsp;draw&nbsp;flag&nbsp;is&nbsp;set,&nbsp;discard&nbsp;tile&nbsp;for&nbsp;current&nbsp;player&nbsp;and&nbsp;set&nbsp;discard<br>
+flag.<br>
+&nbsp;<br>
+tile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reference&nbsp;to&nbsp;tile&nbsp;to&nbsp;discard</tt></dd></dl>
+
+<dl><dt><a name="Hand-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Current&nbsp;player&nbsp;draws.&nbsp;&nbsp;If&nbsp;player&nbsp;has&nbsp;ippatsu&nbsp;flag,&nbsp;ippatsu&nbsp;is&nbsp;unset<br>
+(one&nbsp;round&nbsp;has&nbsp;passed).</tt></dd></dl>
+
+<dl><dt><a name="Hand-kan"><strong>kan</strong></a>(self, player)</dt><dd><tt><a href="#Player">Player</a>&nbsp;calls&nbsp;current&nbsp;player's&nbsp;discard.&nbsp;&nbsp;Use&nbsp;<a href="#Hand-ckan">ckan</a>()&nbsp;for&nbsp;concealed&nbsp;kan.&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+player<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;by&nbsp;index</tt></dd></dl>
+
+<dl><dt><a name="Hand-pon"><strong>pon</strong></a>(self, player)</dt><dd><tt><a href="#Player">Player</a>&nbsp;calls&nbsp;current&nbsp;player's&nbsp;discard.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+player<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;by&nbsp;index</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelEvent">class <strong>ModelEvent</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelEvent-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelException">class <strong>ModelException</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="model.html#ModelException">ModelException</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ModelException-__init__"><strong>__init__</strong></a>(self, *vals)</dt></dl>
+
+<dl><dt><a name="ModelException-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#ModelException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="ModelException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#ModelException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="ModelException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#ModelException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="ModelException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="ModelException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#ModelException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="ModelException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#ModelException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="ModelException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="ModelException-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#ModelException-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Player">class <strong>Player</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Player-__init__"><strong>__init__</strong></a>(self, wind_num, points<font color="#909090">=25000</font>)</dt><dd><tt>wind_num<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;player's&nbsp;wind&nbsp;from&nbsp;['east',&nbsp;'south',&nbsp;'west',&nbsp;'north']<br>
+points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="Player-__len__"><strong>__len__</strong></a>(self)</dt><dd><tt>Returns&nbsp;number&nbsp;of&nbsp;tiles&nbsp;in&nbsp;player's&nbsp;hand.</tt></dd></dl>
+
+<dl><dt><a name="Player-addkan"><strong>addkan</strong></a>(self, tile, wall)</dt><dd><tt>Adds&nbsp;tile&nbsp;to&nbsp;declared&nbsp;kan.<br>
+&nbsp;<br>
+tile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tile&nbsp;to&nbsp;add&nbsp;to&nbsp;kan<br>
+wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Wall">Wall</a>&nbsp;to&nbsp;draw&nbsp;replacement&nbsp;tile</tt></dd></dl>
+
+<dl><dt><a name="Player-can_addkan"><strong>can_addkan</strong></a>(self, tile)</dt><dd><tt>Tests&nbsp;if&nbsp;<a href="#Player">Player</a>&nbsp;can&nbsp;<a href="#Player-addkan">addkan</a>(tile).&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;<a href="#Player">Player</a>&nbsp;has&nbsp;a&nbsp;pon<br>
+of&nbsp;the&nbsp;tile.</tt></dd></dl>
+
+<dl><dt><a name="Player-can_chi"><strong>can_chi</strong></a>(self, tile)</dt><dd><tt>Returns&nbsp;number&nbsp;of&nbsp;chi&nbsp;<a href="#Player">Player</a>&nbsp;can&nbsp;form&nbsp;with&nbsp;the&nbsp;tile.</tt></dd></dl>
+
+<dl><dt><a name="Player-can_ckan"><strong>can_ckan</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lists&nbsp;of&nbsp;tiles&nbsp;with&nbsp;which&nbsp;the&nbsp;<a href="#Player">Player</a>&nbsp;can&nbsp;declare<br>
+concealed&nbsp;kan.</tt></dd></dl>
+
+<dl><dt><a name="Player-can_kan"><strong>can_kan</strong></a>(self, tile)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;<a href="#Player">Player</a>&nbsp;can&nbsp;kan&nbsp;tile&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Player-can_pon"><strong>can_pon</strong></a>(self, tile)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;<a href="#Player">Player</a>&nbsp;can&nbsp;pon&nbsp;tile&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Player-chi"><strong>chi</strong></a>(self, tiles)</dt><dd><tt>Form&nbsp;a&nbsp;declared&nbsp;chi&nbsp;with&nbsp;tiles&nbsp;in&nbsp;hand.&nbsp;&nbsp;When&nbsp;taking&nbsp;a&nbsp;discard,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tile&nbsp;should&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;<a href="#Player">Player</a>'s&nbsp;hand&nbsp;prior&nbsp;to&nbsp;calling&nbsp;this&nbsp;method.<br>
+&nbsp;<br>
+tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tiles&nbsp;that&nbsp;form&nbsp;a&nbsp;chi</tt></dd></dl>
+
+<dl><dt><a name="Player-ckan"><strong>ckan</strong></a>(self, tiles, wall)</dt><dd><tt>Declares&nbsp;a&nbsp;concealed&nbsp;kan.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tiles&nbsp;that&nbsp;form&nbsp;a&nbsp;kan<br>
+wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Wall">Wall</a>&nbsp;instance&nbsp;to&nbsp;draw&nbsp;replacement&nbsp;tile</tt></dd></dl>
+
+<dl><dt><a name="Player-clear"><strong>clear</strong></a>(self)</dt><dd><tt>Resets&nbsp;attributes&nbsp;for&nbsp;new&nbsp;hand.&nbsp;&nbsp;Clears&nbsp;tiles&nbsp;in&nbsp;hand.</tt></dd></dl>
+
+<dl><dt><a name="Player-clear_draw"><strong>clear_draw</strong></a>(self)</dt><dd><tt>Clears&nbsp;self.<strong>current_draw</strong>,&nbsp;which&nbsp;references&nbsp;the&nbsp;instance&nbsp;of&nbsp;the&nbsp;tile<br>
+currently&nbsp;"drawn."</tt></dd></dl>
+
+<dl><dt><a name="Player-cycle_wind"><strong>cycle_wind</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Player-discard"><strong>discard</strong></a>(self, tile)</dt><dd><tt>Discard&nbsp;a&nbsp;tile&nbsp;in&nbsp;hand&nbsp;and&nbsp;add&nbsp;to&nbsp;player's&nbsp;discards.</tt></dd></dl>
+
+<dl><dt><a name="Player-draw"><strong>draw</strong></a>(self, wall)</dt><dd><tt>Add&nbsp;tile&nbsp;drawn&nbsp;from&nbsp;wall&nbsp;to&nbsp;hand.</tt></dd></dl>
+
+<dl><dt><a name="Player-iscomplete"><strong>iscomplete</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Player-kan"><strong>kan</strong></a>(self, tiles, wall)</dt><dd><tt>Form&nbsp;a&nbsp;declared&nbsp;kan&nbsp;with&nbsp;tiles&nbsp;in&nbsp;hand.&nbsp;&nbsp;When&nbsp;taking&nbsp;a&nbsp;discard,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tile&nbsp;should&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;<a href="#Player">Player</a>'s&nbsp;hand&nbsp;prior&nbsp;to&nbsp;calling&nbsp;this&nbsp;method.<br>
+&nbsp;<br>
+tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tiles&nbsp;that&nbsp;form&nbsp;a&nbsp;kan<br>
+wall<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Wall">Wall</a>&nbsp;instance&nbsp;to&nbsp;draw&nbsp;replacement&nbsp;tile</tt></dd></dl>
+
+<dl><dt><a name="Player-pon"><strong>pon</strong></a>(self, tiles)</dt><dd><tt>Form&nbsp;a&nbsp;declared&nbsp;pon&nbsp;with&nbsp;tiles&nbsp;in&nbsp;hand.&nbsp;&nbsp;When&nbsp;taking&nbsp;a&nbsp;discard,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tile&nbsp;should&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;<a href="#Player">Player</a>'s&nbsp;hand&nbsp;prior&nbsp;to&nbsp;calling&nbsp;this&nbsp;method.<br>
+&nbsp;<br>
+tiles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;of&nbsp;tiles&nbsp;that&nbsp;form&nbsp;a&nbsp;pon</tt></dd></dl>
+
+<dl><dt><a name="Player-riichi"><strong>riichi</strong></a>(self, double<font color="#909090">=False</font>)</dt><dd><tt>Declare&nbsp;riichi.&nbsp;&nbsp;Raises&nbsp;<a href="#RiichiException">RiichiException</a>&nbsp;if&nbsp;riichi&nbsp;is&nbsp;already&nbsp;declared.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+double<br>
+&nbsp;&nbsp;&nbsp;&nbsp;include&nbsp;yaku&nbsp;for&nbsp;double&nbsp;riichi.&nbsp;&nbsp;Defaults&nbsp;to&nbsp;False.</tt></dd></dl>
+
+<dl><dt><a name="Player-sort"><strong>sort</strong></a>(self)</dt><dd><tt>Sort&nbsp;player's&nbsp;hand&nbsp;in&nbsp;place.</tt></dd></dl>
+
+<dl><dt><a name="Player-waits"><strong>waits</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RiichiException">class <strong>RiichiException</strong></a>(<a href="model.html#ModelException">ModelException</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="model.html#RiichiException">RiichiException</a></dd>
+<dd><a href="model.html#ModelException">ModelException</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="model.html#ModelException">ModelException</a>:<br>
+<dl><dt><a name="RiichiException-__init__"><strong>__init__</strong></a>(self, *vals)</dt></dl>
+
+<dl><dt><a name="RiichiException-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="model.html#ModelException">ModelException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#RiichiException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="RiichiException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#RiichiException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="RiichiException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#RiichiException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="RiichiException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="RiichiException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#RiichiException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="RiichiException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#RiichiException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="RiichiException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="RiichiException-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#RiichiException-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Wall">class <strong>Wall</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Wall-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Wall-__len__"><strong>__len__</strong></a>(self)</dt><dd><tt>Total&nbsp;number&nbsp;of&nbsp;tiles&nbsp;in&nbsp;hand,&nbsp;including&nbsp;all&nbsp;four&nbsp;wall&nbsp;sections.</tt></dd></dl>
+
+<dl><dt><a name="Wall-deal"><strong>deal</strong></a>(self, roll, player_list)</dt></dl>
+
+<dl><dt><a name="Wall-dora"><strong>dora</strong></a>(self)</dt><dd><tt>Wrapper&nbsp;for&nbsp;respective&nbsp;<a href="#DeadWall">DeadWall</a>&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Wall-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Take&nbsp;next&nbsp;tile&nbsp;in&nbsp;wall&nbsp;(taking&nbsp;into&nbsp;consideration&nbsp;all&nbsp;four&nbsp;sections<br>
+and&nbsp;any&nbsp;breaks&nbsp;in&nbsp;wall.&nbsp;&nbsp;If&nbsp;there&nbsp;are&nbsp;no&nbsp;more&nbsp;tiles&nbsp;in&nbsp;the&nbsp;wall,&nbsp;raise<br>
+<a href="#WallEmptyException">WallEmptyException</a>.</tt></dd></dl>
+
+<dl><dt><a name="Wall-rdraw"><strong>rdraw</strong></a>(self)</dt><dd><tt>Reverse&nbsp;draw,&nbsp;for&nbsp;replacing&nbsp;dead&nbsp;wall&nbsp;tiles.</tt></dd></dl>
+
+<dl><dt><a name="Wall-take"><strong>take</strong></a>(self)</dt><dd><tt>Wrapper&nbsp;for&nbsp;respective&nbsp;<a href="#DeadWall">DeadWall</a>&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Wall-ura"><strong>ura</strong></a>(self)</dt><dd><tt>Wrapper&nbsp;for&nbsp;respective&nbsp;<a href="#DeadWall">DeadWall</a>&nbsp;method.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WallEmptyException">class <strong>WallEmptyException</strong></a>(<a href="model.html#ModelException">ModelException</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="model.html#WallEmptyException">WallEmptyException</a></dd>
+<dd><a href="model.html#ModelException">ModelException</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="model.html#ModelException">ModelException</a>:<br>
+<dl><dt><a name="WallEmptyException-__init__"><strong>__init__</strong></a>(self, *vals)</dt></dl>
+
+<dl><dt><a name="WallEmptyException-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="model.html#ModelException">ModelException</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#WallEmptyException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="WallEmptyException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#WallEmptyException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="WallEmptyException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#WallEmptyException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="WallEmptyException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="WallEmptyException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#WallEmptyException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="WallEmptyException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#WallEmptyException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="WallEmptyException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="WallEmptyException-with_traceback"><strong>with_traceback</strong></a>(...)</dt><dd><tt><a href="builtins.html#Exception">Exception</a>.<a href="#WallEmptyException-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><tt>exception&nbsp;cause</tt></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><tt>exception&nbsp;context</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

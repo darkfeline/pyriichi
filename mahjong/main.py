@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import pygame
-import mahjong.cpu
-import mahjong.events
-import mahjong.controller
-import mahjong.view
-import mahjong.model
+import cpu
+import events
+import controller
+import view
+import model
 
 def main():
     # init stuff
