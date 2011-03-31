@@ -3,16 +3,22 @@
 import pygame
 import cpu
 import events
-import controller
-import view
+import tcontroller
+import tview
 import model
 
 def main():
     # init stuff
     em = mahjong.events.EventManager()
-    cpu = cpu.CPU(em)
+    cp = cpu.CPU(em)
 
-    cpu.run()
+    m = model.Game(em)
+    v = tview.View(em, m) 
+    c = tcontroller.Controller(v, m)
+    em.registerlistener(v)
+    em.registerlistener(c)
+
+    cp.run()
 
 
 if __name__=="__main__":

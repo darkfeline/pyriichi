@@ -105,3 +105,8 @@ class TextBlitter:
         self.display.blit(text, rect)
 
 
+if __name__ == '__main__':
+    x = View()
+    x.bgblitter.blit()
+    x.flip()
+    input()

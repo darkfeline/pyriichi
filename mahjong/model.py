@@ -785,17 +785,17 @@ tiles
 
 
 class Game:
-    def __init__(self):
-        """Calls Game.reset"""
-        self.reset()
+    def __init__(self, eventmanager):
+        self.eventmanager = eventmanager
 
-    def reset(self):
-        """Reset round wind, dealer, honba, riichi pot, players"""
+    def start(self):
+        """Sets round wind, dealer, honba, riichi pot, players"""
         self.round_wind = 0
         self.dealer = 0
         self.honba = 0
         self.riichi_pot = 0
         self.players = [ Player(x) for x in range(4) ]
+        self.eventmanager.post(GameStartEvent())
 
     def cycle(self):
         """Cycles current dealer and each player's wind.  If it is again the
@@ -862,6 +862,26 @@ class WallEmptyException(ModelException):
 
 
 class ModelEvent:
+    def __init__(self):
+        pass
+
+
+class GameStartEvent(ModelEvent):
+    def __init__(self):
+        pass
+
+
+class HandStartEvent(ModelEvent):
+    def __init__(self):
+        pass
+
+
+class TileChange(ModelEvent):
+    def __init__(self):
+        pass
+
+
+class HandEndEvent(ModelEvent):
     def __init__(self):
         pass
 
