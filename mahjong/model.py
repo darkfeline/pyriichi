@@ -2,6 +2,7 @@
 
 import random
 import scoring
+import events.model
 
 class Player:
     def __init__(self, wind_num, points=25000):
@@ -786,16 +787,18 @@ tiles
 
 class Game:
     def __init__(self, eventmanager):
+        """Need to call self.start() to get things going."""
         self.eventmanager = eventmanager
 
     def start(self):
         """Sets round wind, dealer, honba, riichi pot, players"""
         self.round_wind = 0
+        self.home = 0   # starting dealer
         self.dealer = 0
         self.honba = 0
         self.riichi_pot = 0
         self.players = [ Player(x) for x in range(4) ]
-        self.eventmanager.post(GameStartEvent())
+        self.eventmanager.post(events.model.GameStartEvent())
 
     def cycle(self):
         """Cycles current dealer and each player's wind.  If it is again the
@@ -804,7 +807,7 @@ original east's turn, cycle round wind."""
         self.dealer %= 4
         for player in self.players:
             player.cycle_wind()
-        if self.dealer == 0:
+        if self.dealer == self.home:
             self.wind += 1
             self.wind %= 4
 
@@ -813,6 +816,7 @@ original east's turn, cycle round wind."""
         if not has_hand:
             self.hand = Hand(self.round_wind, self.dealer, self.honba,
                              self.riichi_pot, self.players)
+            self.eventmanager.post(events.model.HandStartEvent())
         return self.hand
 
     def has_hand(self):
@@ -837,6 +841,7 @@ original east's turn, cycle round wind."""
             self.cycle()
         else:
             self.honba += 1
+        self.eventmanager.post(events.model.HandEndEvent())
         del self.hand
 
 
@@ -859,30 +864,3 @@ class RiichiException(ModelException):
 
 class WallEmptyException(ModelException):
     pass
-
-
-class ModelEvent:
-    def __init__(self):
-        pass
-
-
-class GameStartEvent(ModelEvent):
-    def __init__(self):
-        pass
-
-
-class HandStartEvent(ModelEvent):
-    def __init__(self):
-        pass
-
-
-class TileChange(ModelEvent):
-    def __init__(self):
-        pass
-
-
-class HandEndEvent(ModelEvent):
-    def __init__(self):
-        pass
-
-

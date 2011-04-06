@@ -2,14 +2,14 @@
 
 import pygame
 import cpu
-import events
+import events.manager
 import tcontroller
 import tview
 import model
 
 def main():
     # init stuff
-    em = mahjong.events.EventManager()
+    em = events.manager.EventManager()
     cp = cpu.CPU(em)
 
     m = model.Game(em)
@@ -18,7 +18,8 @@ def main():
     em.registerlistener(v)
     em.registerlistener(c)
 
-    cp.run()
+    #cp.run()
+    v.startmenu()
 
 
 if __name__=="__main__":

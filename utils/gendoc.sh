@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd mahjong
+cd ../mahjong
 for file in `ls | grep  '.py$' | sed s/.py//`
 do
     pydoc3 -w ./$file.py
     if [ $? = 0 ]
     then
-        mv $file.html ../
+        mv $file.html ../docs
     fi
 done
 

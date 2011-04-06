@@ -17,9 +17,10 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="events.html">events</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
 </td><td width="25%" valign=top><a href="scoring.html">scoring</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -46,7 +47,6 @@
 </font></dt><dt><font face="helvetica, arial"><a href="model.html#Dice">Dice</a>
 </font></dt><dt><font face="helvetica, arial"><a href="model.html#Game">Game</a>
 </font></dt><dt><font face="helvetica, arial"><a href="model.html#Hand">Hand</a>
-</font></dt><dt><font face="helvetica, arial"><a href="model.html#ModelEvent">ModelEvent</a>
 </font></dt><dt><font face="helvetica, arial"><a href="model.html#Player">Player</a>
 </font></dt><dt><font face="helvetica, arial"><a href="model.html#Wall">Wall</a>
 </font></dt></dl>
@@ -117,7 +117,7 @@ Data descriptors defined here:<br>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Calls&nbsp;<a href="#Game">Game</a>.reset</tt></dd></dl>
+<dl><dt><a name="Game-__init__"><strong>__init__</strong></a>(self, eventmanager)</dt><dd><tt>Need&nbsp;to&nbsp;call&nbsp;<a href="#Game-start">start</a>()&nbsp;to&nbsp;get&nbsp;things&nbsp;going.</tt></dd></dl>
 
 <dl><dt><a name="Game-cycle"><strong>cycle</strong></a>(self)</dt><dd><tt>Cycles&nbsp;current&nbsp;dealer&nbsp;and&nbsp;each&nbsp;player's&nbsp;wind.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;again&nbsp;the<br>
 original&nbsp;east's&nbsp;turn,&nbsp;cycle&nbsp;round&nbsp;wind.</tt></dd></dl>
@@ -127,7 +127,7 @@ original&nbsp;east's&nbsp;turn,&nbsp;cycle&nbsp;round&nbsp;wind.</tt></dd></dl>
 <dl><dt><a name="Game-has_hand"><strong>has_hand</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;a&nbsp;hand&nbsp;instance&nbsp;currently&nbsp;exists&nbsp;and&nbsp;False<br>
 otherwise.</tt></dd></dl>
 
-<dl><dt><a name="Game-reset"><strong>reset</strong></a>(self)</dt><dd><tt>Reset&nbsp;round&nbsp;wind,&nbsp;dealer,&nbsp;honba,&nbsp;riichi&nbsp;pot,&nbsp;players</tt></dd></dl>
+<dl><dt><a name="Game-start"><strong>start</strong></a>(self)</dt><dd><tt>Sets&nbsp;round&nbsp;wind,&nbsp;dealer,&nbsp;honba,&nbsp;riichi&nbsp;pot,&nbsp;players</tt></dd></dl>
 
 <dl><dt><a name="Game-start_hand"><strong>start_hand</strong></a>(self)</dt><dd><tt>Returns&nbsp;hand;&nbsp;creates&nbsp;hand&nbsp;instance&nbsp;if&nbsp;none&nbsp;exists.</tt></dd></dl>
 
@@ -234,24 +234,6 @@ player<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 player<br>
 &nbsp;&nbsp;&nbsp;&nbsp;player&nbsp;by&nbsp;index</tt></dd></dl>
-
-<hr>
-Data descriptors defined here:<br>
-<dl><dt><strong>__dict__</strong></dt>
-<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
-</dl>
-<dl><dt><strong>__weakref__</strong></dt>
-<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
-</dl>
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="ModelEvent">class <strong>ModelEvent</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="ModelEvent-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
 <hr>
 Data descriptors defined here:<br>

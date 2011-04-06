@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import pygame
+
 class CPU:
     """CPU Class periodically posts TickEvent at 60 fps max."""
     def __init__(self, eventmanager):
