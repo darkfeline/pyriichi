@@ -5,14 +5,14 @@ import cpu
 import events.manager
 import tcontroller
 import tview
-import model
+import model.game
 
 def main():
     # init stuff
     em = events.manager.EventManager()
     cp = cpu.CPU(em)
 
-    m = model.Game(em)
+    m = model.game.Game(em)
     v = tview.View(em, m) 
     c = tcontroller.Controller(v, m)
     em.registerlistener(v)

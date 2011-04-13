@@ -2,6 +2,7 @@
 
 import random
 import scoring
+import tiles
 import events.model
 
 class Player:
@@ -813,7 +814,7 @@ original east's turn, cycle round wind."""
 
     def start_hand(self):
         """Returns hand; creates hand instance if none exists."""
-        if not has_hand:
+        if not self.has_hand():
             self.hand = Hand(self.round_wind, self.dealer, self.honba,
                              self.riichi_pot, self.players)
             self.eventmanager.post(events.model.HandStartEvent())

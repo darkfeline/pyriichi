@@ -153,7 +153,7 @@ class P5(Tile):
 class P5R(P5):
     def __init__(self):
         P5.__init__(self)
-        self.name += '*'
+        self.name += 'R'
         self.red = 1
 
 class P6(Tile):
@@ -217,7 +217,7 @@ class S5(Tile):
 class S5R(S5):
     def __init__(self):
         S5.__init__(self)
-        self.name += '*'
+        self.name += 'R'
         self.red = 1
 
 class S6(Tile):
@@ -280,7 +280,7 @@ class M5(Tile):
 class M5R(M5):
     def __init__(self):
         M5.__init__(self)
-        self.name += '*'
+        self.name += 'R'
         self.red = 1
 
 class M6(Tile):
@@ -333,20 +333,20 @@ class Wh(Tile):
         Tile.__init__(self, 'Wh', 'DRAGONS', 31)
 
 
-class G(Tile):
+class Gr(Tile):
     def __init__(self):
-        Tile.__init__(self, 'G', 'DRAGONS', 32)
+        Tile.__init__(self, 'Gr', 'DRAGONS', 32)
         self.green = 1
 
 
-class R(Tile):
+class Rd(Tile):
     def __init__(self):
-        Tile.__init__(self, 'R', 'DRAGONS', 33)
+        Tile.__init__(self, 'Rd', 'DRAGONS', 33)
 
 
 PINZU = [P1, P2, P3, P4, P5, P6, P7, P8, P9]
 SOUZU = [S1, S2, S3, S4, S5, S6, S7, S8, S9]
 MANZU = [M1, M2, M3, M4, M5, M6, M7, M8, M9]
 WINDS = [E, S, W, N]
-DRAGONS = [Wh, G, R]
+DRAGONS = [Wh, Gr, Rd]
 SUITS = [PINZU, SOUZU, MANZU, WINDS, DRAGONS]

@@ -13,7 +13,7 @@ hand
 
 count
     list with each element corresponding to the number of that tile in the
-    hand
+    hand.  Note that information about red tiles are lost.  
 
 """
 

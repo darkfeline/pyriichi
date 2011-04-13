@@ -32,6 +32,7 @@ listener.notify(event)
     """
         self.events.append(event)
         if not self.running:
+            self.running = 1
             self.send()
 
     def send(self):
@@ -44,8 +45,13 @@ listener.notify(event)
                 elif isinstance(event, RemoveListenerEvent):
                     del self.listeners[event.listener]
             for listener in self.listeners.keys():
-                if event is listener.listen_for or event in listener.listen_for:
-                    listener.notify(event)
+                try:
+                    for type in listener.listen_for:
+                        if isinstance(event, type):
+                            listener.notify(event)
+                except TypeError:
+                    if isinstance(event, listener.listen_for):
+                        listener.notify(event)
         self.running = 0
 
 
