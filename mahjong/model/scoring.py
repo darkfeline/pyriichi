@@ -20,7 +20,7 @@ count
 from __future__ import division
 import math
 
-import tiles
+import model.tiles
 
 def sort(hand):
     """Sort list of tiles in place."""
@@ -1034,6 +1034,69 @@ ura
     return calc(fu, han, east, type, honba), yaku
 
 
+def highest_score(east, winds, hand, sets, honba=0, bonus=[], dora=[], ura=[]):
+    """Returns the highest score from score().
+
+east 
+    1 if East wins, 0 otherwise
+winds
+    Round and player winds.  If East round Dealer, use ['E', 'E']
+hand
+    list of tiles; player's hand
+sets
+    list of player's melds
+honba
+    number of repeat counters
+bonus
+    other yaku; list in lower case in Japanese
+    possible yaku: 
+        nagashi mangan
+        tenhou
+        chihou
+        renhou
+        riichi
+        ippatsu
+        daburu riichi
+        rinchan kaihou
+        chan kan
+        haitei
+dora
+    list of dora indicators
+ura
+    list of ura-dora indicators
+    
+""" 
+    possible = makesets(hand)
+    # Find all possible scores
+    scorelist = []
+    for x in possible:
+        y = sets[:]
+        y.extend(x)
+        scorelist.append(
+            scoring.score(
+                east, winds, *y, honba=self.honba, bonus=bonus,
+                dora=dora, ura=ura
+            )
+        )
+
+    # Find highest score
+    max = 0
+    try:
+        max_score = scorelist[max][0][0]
+    except TypeError:
+        max_score = scorelist[max][0]
+    for i in range(1, len(scorelist)):
+        try:
+            current = scorelist[i][0][0]
+        except TypeError:
+            current = scorelist[i][0]
+        if current > max_score:
+            max = i
+            max_score = current
+
+    return scorelist[max]
+
+
 class ScoringException(Exception):
     def __init__(self, func, val):
         self.func = func
@@ -1042,7 +1105,7 @@ class ScoringException(Exception):
         return func + ":" + repr(self.val)
 
 if __name__ == '__main__':
-    from tiles import *
+    from model.tiles import *
 
     # 2000/4000, menzen tsumo, itsu, dora, dora
     print('2000/4000, menzen tsumo, itsu, dora, dora')
@@ -1061,7 +1124,7 @@ if __name__ == '__main__':
     print('2900, fanpai, dora')
     a = [M4(), M5(), M6()]
     b = [P7(), P8(), P9()]
-    c = [R(), R(), R()]
+    c = [Rd(), Rd(), Rd()]
     for tile in c:
         tile.pon = 1
     d = [S6(), S7(), S8()]
@@ -1082,7 +1145,7 @@ if __name__ == '__main__':
     d = [M2(), M2()]
     e = [M3(), M3()]
     f = [P7(), P7()]
-    g = [R(), R()]
+    g = [Rd(), Rd()]
     s, y = score(1, ['E', 'E'], a, b, c, d, e, f, g, dora=[S8()])
     print(s)
     print(y)

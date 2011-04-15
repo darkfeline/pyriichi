@@ -152,7 +152,6 @@ player
                     bonus.append('chihou')
 
 
-        possible = scoring.makesets(playeri.hand)
         # Add bonuses
         if len(self.wall) < 1:
             bonus.append("haitei")
@@ -167,34 +166,41 @@ player
         dora = self.wall.dora()
         ura = self.wall.ura()
 
-        # Find all possible scores
-        scorelist = []
-        for x in possible:
-            y = playeri.sets[:]
-            y.extend(x)
-            scorelist.append(
-                scoring.score(
-                    east, winds, *y, honba=self.honba, bonus=bonus,
-                    dora=dora, ura=ura
-                )
-            )
+        # Superceded by model.scoring.highest_score()
+        ## Find all possible scores
+        #possible = scoring.makesets(playeri.hand)
+        #scorelist = []
+        #for x in possible:
+        #    y = playeri.sets[:]
+        #    y.extend(x)
+        #    scorelist.append(
+        #        scoring.score(
+        #            east, winds, *y, honba=self.honba, bonus=bonus,
+        #            dora=dora, ura=ura
+        #        )
+        #    )
 
-        # Find highest score
-        max = 0
-        try:
-            max_score = scorelist[max][0][0]
-        except TypeError:
-            max_score = scorelist[max][0]
-        for i in range(1, len(scorelist)):
-            try:
-                current = scorelist[i][0][0]
-            except TypeError:
-                current = scorelist[i][0]
-            if current > max_score:
-                max = i
-                max_score = current
+        ## Find highest score
+        #max = 0
+        #try:
+        #    max_score = scorelist[max][0][0]
+        #except TypeError:
+        #    max_score = scorelist[max][0]
+        #for i in range(1, len(scorelist)):
+        #    try:
+        #        current = scorelist[i][0][0]
+        #    except TypeError:
+        #        current = scorelist[i][0]
+        #    if current > max_score:
+        #        max = i
+        #        max_score = current
+        max = model.scoring.highest_score(
+                east, winds, playeri.hand, playeri.sets, 
+                honba=self.honba, bonus=bonus, dora=dora, ura=ura
+        )
+
         # Calculate array of point differences
-        x, self.yaku = scorelist[max]
+        x, self.yaku = max
         diff = []
         try:
             for i in range(1,4):

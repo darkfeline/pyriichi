@@ -2,7 +2,7 @@
 
 import random
 
-import tiles
+import model.tiles
 
 class Wall:
     def __init__(self):

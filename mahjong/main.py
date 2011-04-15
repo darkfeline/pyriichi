@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import pygame
-import cpu
+
+import model.cpu
 import events.manager
 import tcontroller
 import tview
@@ -10,7 +11,7 @@ import model.game
 def main():
     # init stuff
     em = events.manager.EventManager()
-    cp = cpu.CPU(em)
+    cp = model.cpu.CPU(em)
 
     m = model.game.Game(em)
     v = tview.View(em, m) 

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
-import scoring
+from __future__ import division
+
+import model.scoring
 
 class Player:
     def __init__(self, wind_num, points=25000):
@@ -259,11 +261,86 @@ class AI:
     def __init__(self, player):
         self.player = player
 
+    def calc_hand(self):
+        pass
+
     def calc_discard(self):
         pass
 
-    def calc_meld(self):
+    def calc_meld(self, tile):
         pass
+
+
+class Hypothesis:
+    """Class that represents a hypothetical hand for AI."""
+    def __init__(self, hand, targets, out):
+        """hand
+    list of tiles already in hand
+targets
+    list of hypothetical tiles to wait for.  Either/or tiles are kept in a
+    sublist, e.g. if a hand needs either P3 or P6 for P3-5 or P4-6, then targets
+    would contain [P3, P6] as an element.
+out
+    list of tiles already discarded or melded
+
+"""
+        self.hand = hand
+        self.targets = targets
+
+    def calc(self, out):
+        """Returns a list of tuples, thus: (hypothetical hand, probability of
+hand, number of waits, score).
+
+out
+    list of tiles already discarded or melded
+    
+"""
+        final = self.gen_hands()
+        for i, hand in enumerate(final):
+            p = self.chance(hand, out)
+            c = len(self.targets)
+            s = model.scoring.score() # asdfasdf
+            final[i] = [hand, p, c]
+        return final
+
+    def gen_hands(self):
+        """Returns a list of final possible hands based on self.hand and
+        self.targets."""
+        final = []
+        current = self.hand[:]
+        count = 0
+        self._rparse(final, current, count)
+        return final
+
+    def _rparse(self, final, current, count):
+        """Recursive function for gen_hands()."""
+        for x in self.targets[count:]:
+            if isinstace(x, list):
+                self._rparse(final, current, count)
+                break
+            else:
+                current.append(x)
+                count += 1
+
+    def chance(self, final, out):
+        """Returns the ?reduced probability? of winning.
+
+final
+    ONE possible hand
+out
+    list of tiles discarded/melded
+
+"""
+        outcount = model.scoring.tocount(out)
+        count = model.scoring.tocount(final)
+        total = sum(outcount)
+        current = 0
+        for i in range(34):
+            x = -(count[i] + outcount[i] - 4)
+            if x <= 0:
+                return 0
+            current += x
+        return current / total
 
 
 class PlayerError(Exception):
