@@ -7,7 +7,7 @@ import model.tiles
 class Wall:
     def __init__(self):
         temp = []
-        for suit in tiles.SUITS:
+        for suit in model.tiles.SUITS:
             for tile in suit:
                 for i in range(4):
                     temp.append(tile())
@@ -15,14 +15,14 @@ class Wall:
         # swap in red fives
         red_done = [0, 0, 0]
         for i, x in enumerate(temp):
-            if isinstance(x, tiles.P5) and not red_done[0]:
-                temp[i] = tiles.P5R()
+            if isinstance(x, model.tiles.P5) and not red_done[0]:
+                temp[i] = model.tiles.P5R()
                 red_done[0] = 1
-            elif isinstance(x, tiles.S5) and not red_done[1]:
-                temp[i] = tiles.S5R()
+            elif isinstance(x, model.tiles.S5) and not red_done[1]:
+                temp[i] = model.tiles.S5R()
                 red_done[1] = 1
-            elif isinstance(x, tiles.M5) and not red_done[2]:
-                temp[i] = tiles.M5R()
+            elif isinstance(x, model.tiles.M5) and not red_done[2]:
+                temp[i] = model.tiles.M5R()
                 red_done[2] = 1
             if sum(red_done) == 3:
                 break
@@ -40,13 +40,13 @@ class Wall:
             self.walls.append(wall)
 
     def __len__(self):
-        """Total number of tiles in hand, including all four wall sections."""
+        """Total number of model.tiles in hand, including all four wall sections."""
         return sum([len(wall) for wall in self.walls])
 
 
     def draw(self):
         """Take next tile in wall (taking into consideration all four sections
-and any breaks in wall.  If there are no more tiles in the wall, raise
+and any breaks in wall.  If there are no more model.tiles in the wall, raise
 WallEmptyError."""
         # in the beginning, if the dead wall was taken from the middle of a wall
         # section, may not draw from beginning of wall section
@@ -63,7 +63,7 @@ WallEmptyError."""
             return self.walls[self.pointer].pop(0)
 
     def rdraw(self):
-        """Reverse draw, for replacing dead wall tiles."""
+        """Reverse draw, for replacing dead wall model.tiles."""
         try:
             self.sep -= 1
             if self.sep <= 0:
@@ -86,7 +86,7 @@ WallEmptyError."""
         # separate dead wall
         dead = []
         # where to divide the wall
-        # tiles are double-stacked
+        # model.tiles are double-stacked
         self.sep *= 2
         if self.sep >= 14:
             dead.extend(self.walls[self.pointer][self.sep - 14:self.sep])
@@ -135,18 +135,18 @@ WallEmptyError."""
 class DeadWall:
     """DeadWall class; intended to be used as part of Wall class."""
     def __init__(self, tiles, main_wall):
-        """tiles
-    list of tiles for dead wall
+        """model.tiles
+    list of model.tiles for dead wall
 main_wall
     reference to main Wall instance that created this DeadWall instance
 
 """
-        self.wall = tiles
+        self.wall = model.tiles
         self.doralv = 1
         self.main_wall = main_wall
 
     def __len__(self):
-        """Returns number of tiles in wall."""
+        """Returns number of model.tiles in wall."""
         return len(self.wall)
 
     def can_kan(self):
@@ -157,18 +157,18 @@ main_wall
             return False
             
     def dora(self):
-        """Returns a list of dora indicator tiles."""
-        return [self.wall[x] for x in range(self.kantiles, self.kantiles + 2 *
+        """Returns a list of dora indicator model.tiles."""
+        return [self.wall[x] for x in range(self.kanmodel.tiles, self.kanmodel.tiles + 2 *
                                             self.doralv, 2)]
 
     def ura(self):
-        """Returns a list of ura-dora indicator tiles."""
-        return [self.wall[x + 1] for x in range(self.kantiles, self.kantiles + 2
+        """Returns a list of ura-dora indicator model.tiles."""
+        return [self.wall[x + 1] for x in range(self.kanmodel.tiles, self.kanmodel.tiles + 2
                                                 * self.doralv, 2)]
 
     def take(self):
         """Pops a tile for kan replacement, also taking replacement tile from
-main wall and adding dora.  If no more replacement tiles, raises
+main wall and adding dora.  If no more replacement model.tiles, raises
 ModelError."""
         if self.doralv < 5:
             self.doralv += 1
