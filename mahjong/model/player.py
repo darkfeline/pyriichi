@@ -323,8 +323,7 @@ out
                 count += 1
 
     def chance(self, final, out):
-        """Returns the ?reduced probability? of winning.
-
+        """Returns the number of tiles left that can finish hand.
 final
     ONE possible hand
 out
@@ -336,11 +335,12 @@ out
         total = sum(outcount)
         current = 0
         for i in range(34):
-            x = -(count[i] + outcount[i] - 4)
-            if x <= 0:
-                return 0
-            current += x
-        return current / total
+            if count[i] > 0:
+                x = 4 - outcount[i]
+                if x < 1:
+                    return 0
+                current += x
+            return current
 
 
 class PlayerError(Exception):
@@ -352,4 +352,8 @@ class PlayerError(Exception):
 
 
 class RiichiError(PlayerError):
+    pass
+
+
+if __name__ == '__main__':
     pass
