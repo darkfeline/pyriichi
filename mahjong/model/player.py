@@ -71,13 +71,13 @@ double
 
     def sort(self):
         """Sort player's hand in place."""
-        scoring.sort(self.hand)
+        model.scoring.sort(self.hand)
 
     def iscomplete(self):
-        return scoring.iscomplete(self.hand)
+        return model.scoring.iscomplete(self.hand)
 
     def waits(self):
-        return scoring.waits(self.hand)
+        return model.scoring.waits(self.hand)
 
     def chi(self, tiles):
         """Form a declared chi with tiles in hand.  When taking a discard, the
@@ -87,7 +87,7 @@ tiles
     list of tiles that form a chi
 
     """
-        if scoring.ischi(tiles):
+        if model.scoring.ischi(tiles):
             set = []
             for tile in tiles:
                 tile.chi = 1
@@ -106,7 +106,7 @@ tiles
     list of tiles that form a pon
 
     """
-        if scoring.ispon(tiles):
+        if model.scoring.ispon(tiles):
             set = []
             for tile in tiles:
                 tile.pon = 1
@@ -127,7 +127,7 @@ wall
     Wall instance to draw replacement tile
 
     """
-        if scoring.iskan(tiles):
+        if model.scoring.iskan(tiles):
             set = []
             for tile in tiles:
                 tile.kan = 1
@@ -151,7 +151,7 @@ wall
     Wall instance to draw replacement tile
 
 """
-        if scoring.iskan(tiles):
+        if model.scoring.iskan(tiles):
             set = []
             for tile in tiles:
                 tile.ckan = 1
@@ -211,7 +211,7 @@ wall
     def can_ckan(self):
         """Returns a list of lists of tiles with which the Player can declare
         concealed kan."""
-        count = scoring.tocount(self.hand)
+        count = model.scoring.tocount(self.hand)
         possible = []
         for tilenum, num in enumerate(count):
             if num == 4:
@@ -243,7 +243,7 @@ of the tile."""
         else:
             val = tile.value
             start = ["PINZU", "SOUZU", "MANZU"].index(tile.type) * 9
-            count = scoring.tocount(self.hand)[start:start + 9]
+            count = model.scoring.tocount(self.hand)[start:start + 9]
             count[val - 1] += 1
             a = 0
             result = 0
@@ -299,8 +299,8 @@ out
         for i, hand in enumerate(final):
             p = self.chance(hand, out)
             c = len(self.targets)
-            s = model.scoring.score() # asdfasdf
-            final[i] = [hand, p, c]
+            s = model.scoring.highest_score(hand) # asdfasdf
+            final[i] = [hand, p, c, s]
         return final
 
     def gen_hands(self):
