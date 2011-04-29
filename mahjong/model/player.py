@@ -261,6 +261,51 @@ class AI:
     def __init__(self, player):
         self.player = player
 
+    def analyze_hand(self):
+        self.player.sort()
+        hand = self.player.hand
+        count = model.scoring.tocount(self.player.hand)
+
+        pairs = 0
+        trips = 0
+        quads = 0
+        for x in count:
+            if x >= 2:
+                pairs += 1
+                if >= 3:
+                    trips += 1
+                    if == 4:
+                        quades += 1
+
+        side = 0
+        switch = 0
+        for i, x in enumerate(count[:3 * 9]):
+            if x:
+                if not switch:
+                    switch = 1
+                else:
+                    side += 1
+                    if i % 9 == 0:
+                        switch = 0
+            else:
+                switch = 0
+
+        middle = 0
+        switch = 0
+        for i, x in enumerate(count[:3 * 9]):
+            if x:
+                if switch == 0 and i % 10 < 8:
+                    switch = 1
+                elif switch == 2:
+                    middle += 1
+                    if i % 9 == 0:
+                        switch = 0
+                    else:
+                        switch = 1
+            else:
+                if switch == 1:
+                    switch = 2
+
     def calc_hand(self):
         pass
 
