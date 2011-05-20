@@ -20,7 +20,7 @@ count
 from __future__ import division
 import math
 
-import model.tiles
+import tiles
 
 def sort(hand):
     """Sort list of tiles in place."""
@@ -118,9 +118,7 @@ def has_kan(hand, tile):
 def has_chi(hand, tile):
     """Returns a tuple of the values of the tiles of the chi if the tile can
     form a chi in the hand and False otherwise."""
-    try:
-        tile.value
-    except AttributeError:
+    if not hasattr(tile, "value"):
         return False
     else:
         val = tile.value
@@ -236,33 +234,16 @@ def concealed(*sets):
 only one set, takes into account the last tile."""
     if len(sets) == 1:
         for tile in sets[0]:
-            try:
-                tile.last
-                tile.ron
-            except AttributeError:
-                pass
-            else:
+            if not (hasattr(tile, "last") and hasattr(tile."ron")):
                 return False
     else:
         for set in sets:
             for tile in set:
-                try:
-                    tile.kan
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(tile, "kan"):
                     return False
-                try:
-                    tile.pon
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(tile, "pon"):
                     return False
-                try:
-                    tile.chi
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(tile, "chi"):
                     return False
     return True
 
@@ -309,9 +290,7 @@ def is7pairs(hand):
 def isnagashi(discards):
     """Checks if all discards are honors."""
     for tile in discards:
-        try:
-            tile.value
-        except AttributeError:
+        if not hasattr(tile, "value"):
             if not tile.cmpval > 26:
                 return False
     return True
@@ -484,18 +463,10 @@ ura
 
     type = ''
     for tile in tohand(*sets):
-        try:
-            tile.ron
-        except AttributeError:
-            pass
-        else:
+        if hasattr(tile, "ron"):
             type = 'ron'
             break
-        try:
-            tile.tsumo
-        except AttributeError:
-            pass
-        else:
+        if not hasattr(tile, "tsumo"):
             type = 'tsumo'
             break
 
@@ -544,22 +515,23 @@ ura
         return calc(20, 13, east, type, honba), ['tsuu iisou']
 
     # All Terminals
-    try:
-        for set in sets:
-            # If this raises AttributeError, then not all terminals
-            types = [tile.terminal for tile in set]
-    except AttributeError:
-        pass
-    else:
+    x = 0
+    for set in sets:
+        for tile in set:
+            if not hasattr(tile, "terminal"):
+                x = 1
+                break
+    if not x:
         return calc(20, 13, east, type, honba), ['chinrouto']
 
     # All Green
-    try:
-        for set in sets:
-            types = [tile.green for tile in set]
-    except AttributeError:
-        pass
-    else:
+    x = 0
+    for set in sets:
+        for tile in set:
+            if not hasattr(tile, "green"):
+                x = 1
+                break
+    if not x:
         return calc(20, 13, east, type, honba), ['ryuu iisou']
 
     # Four Kongs
@@ -580,17 +552,9 @@ ura
                 count += 1
                 # win on pair
                 if len(set) == 2:
-                    try:
-                        set[0].last
-                    except AttributeError:
-                        pass
-                    else:
+                    if hasattr(set[0], "last"):
                         han += 13
-                    try:
-                        set[1].last
-                    except AttributeError:
-                        pass
-                    else:
+                    if hasattr(set[1], "last"):
                         han += 13
     if count == 4:
         return calc(20, han, east, type, honba), ['suu ankou']
@@ -617,11 +581,7 @@ ura
     values.count(9) >= 3):
         han += 13
         for i, tile in enumerate(tohand(*sets)):
-            try:
-                tile.last
-            except AttributeError:
-                pass
-            else:
+            if hasattr(tile, "last"):
                 values.pop(i)
                 break
         if (values.count(1) == 3 and values.count(2) == 1 and 
@@ -639,11 +599,7 @@ ura
     if is13orphan(hand):
         han += 13
         for tile in hand:
-            try:
-                tile.last
-            except AttributeError:
-                pass
-            else:
+            if hasattr(tile, "last"):
                 hand.remove(tile)
                 count = []
                 for x in [tiles.P1, tiles.P9, tiles.S1, tiles.S9, tiles.M1,
@@ -906,18 +862,10 @@ ura
         for set in sets:
             sort(set)
             if ischi(set):
-                try:
-                    set[0].last
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(set[0], "last"):
                     count += 1
                     continue
-                try:
-                    set[2].last
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(set[2], "last"):
                     count += 1
                     continue
             elif ispair(set):
@@ -935,11 +883,7 @@ ura
         if tile.type in ['DRAGONS', 'WINDS']:
             switch = 1
             break
-        try:
-            tile.terminal
-        except AttributeError:
-            pass
-        else:
+        if hasattr(tile, "terminal"):
             switch = 1
             break
     if not switch:
@@ -977,11 +921,7 @@ ura
                     base *= 2
                 if tile.type in ['DRAGONS', 'WINDS']:
                     base *= 2
-                try:
-                    tile.terminal
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(tile, "terminal"):
                     base *= 2
                 fu += base
                 # Calculate fu for pair
@@ -999,18 +939,10 @@ ura
         for set in sets:
             sort(set)
             if ischi(set):
-                try:
-                    set[0].last
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(set[0], "last"):
                     fu += 2
                     break
-                try:
-                    set[2].last
-                except AttributeError:
-                    pass
-                else:
+                if hasattr(set[2], "last"):
                     fu += 2
                     break
             else:
@@ -1105,7 +1037,7 @@ class ScoringException(Exception):
         return func + ":" + repr(self.val)
 
 if __name__ == '__main__':
-    from model.tiles import *
+    from tiles import *
 
     # 2000/4000, menzen tsumo, itsu, dora, dora
     print('2000/4000, menzen tsumo, itsu, dora, dora')

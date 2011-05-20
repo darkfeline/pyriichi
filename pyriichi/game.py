@@ -2,9 +2,9 @@
 
 import random
 
-import events.model
-import model.player
-import model.wall
+import events
+import player
+import wall
 
 class Hand:
     """Hand Flow Diagram
@@ -57,7 +57,7 @@ yaku
         self.players = players[dealer:] + players[:dealer]
         for player in self.players:
             player.clear()
-        self.wall = model.wall.Wall()
+        self.wall = wall.Wall()
         self.dice = Dice()
 
         self.current_player = 0
@@ -360,7 +360,9 @@ tiles
 class Game:
     def __init__(self, eventmanager):
         """Need to call self.start() to get things going."""
+        self.listen_for = events.ModelRequest
         self.eventmanager = eventmanager
+        self.eventmanager.registerlistener(self)
 
     def start(self):
         """Sets round wind, dealer, honba, riichi pot, players"""
@@ -369,8 +371,9 @@ class Game:
         self.dealer = 0
         self.honba = 0
         self.riichi_pot = 0
-        self.players = [ model.player.Player(x) for x in range(4) ]
-        self.eventmanager.post(events.model.GameStartEvent())
+        self.players = [ player.Player(x) for x in range(4) ]
+
+        self.eventmanager.post(events.GameStartEvent())
 
     def cycle(self):
         """Cycles current dealer and each player's wind.  If it is again the
@@ -388,7 +391,7 @@ original east's turn, cycle round wind."""
         if not self.has_hand():
             self.hand = Hand(self.round_wind, self.dealer, self.honba,
                              self.riichi_pot, self.players)
-            self.eventmanager.post(events.model.HandStartEvent())
+            self.eventmanager.post(events.HandStartEvent())
         return self.hand
 
     def has_hand(self):
@@ -413,8 +416,16 @@ original east's turn, cycle round wind."""
             self.cycle()
         else:
             self.honba += 1
-        self.eventmanager.post(events.model.HandEndEvent())
+        self.eventmanager.post(events.HandEndEvent())
         del self.hand
+
+    def notify(self, event):
+        if isinstance(event, events.GameStartRequest()):
+            self.start()
+        elif isinstance(event, events.HandStartRequest()):
+            self.start_hand()
+        elif isinstance(event, events.DealRequest()):
+            self.hand.deal()
 
 
 class Dice:

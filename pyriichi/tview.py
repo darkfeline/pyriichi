@@ -2,19 +2,19 @@
 
 from __future__ import print_function
 
-import events.model
-import events.view
+import events
 
 class View:
     def __init__(self, eventmanager, model):
-        self.listen_for = events.model.ModelEvent
+        self.listen_for = events.ModelEvent
         self.eventmanager = eventmanager
+        self.eventmanager.registerlistener(self)
         self.model = model
 
     def startmenu(self):
         self.clear()
         print('Welcome to PyRiichi')
-        self.eventmanager.post(events.view.WaitForGameStartEvent())
+        self.eventmanager.post(events.WaitForGameStartEvent())
 
     def showscore(self):
         self.clear()
@@ -73,10 +73,10 @@ class View:
         print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
 
     def notify(self, event):
-        if isinstance(event, events.model.GameStartEvent):
+        if isinstance(event, events.GameStartedEvent):
             self.showscore()
-            self.eventmanager.post(events.view.WaitForHandStartEvent())
-        elif isinstance(event, events.model.HandStartEvent):
+            self.eventmanager.post(events.WaitForHandStartEvent())
+        elif isinstance(event, events.HandStartedEvent):
             self.showhand()  # this is temporary
 
 

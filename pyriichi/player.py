@@ -2,7 +2,7 @@
 
 from __future__ import division
 
-import model.scoring
+import scoring
 
 class Player:
     def __init__(self, wind_num, points=25000):
@@ -71,13 +71,13 @@ double
 
     def sort(self):
         """Sort player's hand in place."""
-        model.scoring.sort(self.hand)
+        scoring.sort(self.hand)
 
     def iscomplete(self):
-        return model.scoring.iscomplete(self.hand)
+        return scoring.iscomplete(self.hand)
 
     def waits(self):
-        return model.scoring.waits(self.hand)
+        return scoring.waits(self.hand)
 
     def chi(self, tiles):
         """Form a declared chi with tiles in hand.  When taking a discard, the
@@ -87,7 +87,7 @@ tiles
     list of tiles that form a chi
 
     """
-        if model.scoring.ischi(tiles):
+        if scoring.ischi(tiles):
             set = []
             for tile in tiles:
                 tile.chi = 1
@@ -106,7 +106,7 @@ tiles
     list of tiles that form a pon
 
     """
-        if model.scoring.ispon(tiles):
+        if scoring.ispon(tiles):
             set = []
             for tile in tiles:
                 tile.pon = 1
@@ -127,7 +127,7 @@ wall
     Wall instance to draw replacement tile
 
     """
-        if model.scoring.iskan(tiles):
+        if scoring.iskan(tiles):
             set = []
             for tile in tiles:
                 tile.kan = 1
@@ -151,7 +151,7 @@ wall
     Wall instance to draw replacement tile
 
 """
-        if model.scoring.iskan(tiles):
+        if scoring.iskan(tiles):
             set = []
             for tile in tiles:
                 tile.ckan = 1
@@ -211,7 +211,7 @@ wall
     def can_ckan(self):
         """Returns a list of lists of tiles with which the Player can declare
         concealed kan."""
-        count = model.scoring.tocount(self.hand)
+        count = scoring.tocount(self.hand)
         possible = []
         for tilenum, num in enumerate(count):
             if num == 4:
@@ -243,7 +243,7 @@ of the tile."""
         else:
             val = tile.value
             start = ["PINZU", "SOUZU", "MANZU"].index(tile.type) * 9
-            count = model.scoring.tocount(self.hand)[start:start + 9]
+            count = scoring.tocount(self.hand)[start:start + 9]
             count[val - 1] += 1
             a = 0
             result = 0
@@ -264,7 +264,7 @@ class AI:
     def analyze_hand(self):
         self.player.sort()
         hand = self.player.hand
-        count = model.scoring.tocount(self.player.hand)
+        count = scoring.tocount(self.player.hand)
 
         pairs = 0
         trips = 0
@@ -344,7 +344,7 @@ out
         for i, hand in enumerate(final):
             p = self.chance(hand, out)
             c = len(self.targets)
-            s = model.scoring.highest_score(hand) # asdfasdf
+            s = scoring.highest_score(hand) # asdfasdf
             final[i] = [hand, p, c, s]
         return final
 
@@ -375,8 +375,8 @@ out
     list of tiles discarded/melded
 
 """
-        outcount = model.scoring.tocount(out)
-        count = model.scoring.tocount(final)
+        outcount = scoring.tocount(out)
+        count = scoring.tocount(final)
         total = sum(outcount)
         current = 0
         for i in range(34):
