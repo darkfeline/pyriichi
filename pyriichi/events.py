@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from weakref import WeakKeyDictionary
+import re
 
 class EventManager:
     def __init__(self):
@@ -68,11 +69,25 @@ class Event:
     def __init__(self):
         self.name = "Event"
 
+    def __str__(self):
+        return self.name
+    
+    def _strip(self):
+        return re.sub(r'\s', '', self.name)
+
+    def __repr__(self):
+        return self._strip() + "()"
+
 
 # Global Events--------------------------------------------------
 class TickEvent(Event):
     def __init__(self):
         self.name = "Tick Event"
+
+
+class SecondEvent(Event):
+    def __init__(self):
+        self.name = "Second Event"
 
 
 class QuitEvent(Event):
@@ -91,11 +106,17 @@ class AddListenerEvent(EventManagerEvent):
         self.name = "Add Listener Event"
         self.listener = listener
 
+    def __repr__(self):
+        return self._strip() + '(' + str(self.listener) + ')'
+
 
 class RemoveListenerEvent(EventManagerEvent):
     def __init__(self, listener):
         self.listener = listener
         self.name = "Remove Listener Event"
+
+    def __repr__(self):
+        return self._strip() + '(' + str(self.listener) + ')'
 
 
 # Model Events----------------------------------------
@@ -158,6 +179,19 @@ class ServerEvent(Event):
 
 
 class ClientConnectEvent(ServerEvent):
-    def __init__(self, client):
+    def __init__(self, client, avatarID):
         self.name = "Client Connect Event"
         self.client = client
+        self.avatarID = avatarID
+
+
+class ClientDisconnectEvent(ServerEvent):
+    def __init__(self, avatarID):
+        self.name = "Client Disconnect Event"
+        self.avatarID = avatarID
+        
+
+class FatalEvent(ServerEvent):
+    def __init__(self, *args):
+        self.name = "Fatal Event"
+        self.args = args

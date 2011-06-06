@@ -1,49 +1,87 @@
 #!/usr/bin/env python
 
-#import twisted.protocols
-from twisted.spread import pb
+from pprint import pprint
 
+from twisted.spread import pb
+from twisted.spread.pb import DeadReferenceError
+from twisted.cred import checkers, protal
+
+import game
 import events
 import network
+import logging
 
-#class Protocol(twisted.protocols.basic.LineReceiver):
-#    def lineReceived(self, data):
-#        d = self.factory.getData(data)
-
-#        def onError(err):
-#            return 'Internal error in server'
-#        d.addErrback(onError)
-
-#        def writeResponse(message):
-#            self.transport.write(message + '\r\n')
-#            self.transport.loseConnection()
-#        d.addCallback(writeResponse)
-
-
-#class Factory(twisted.internet.protocol.ServerFactory):
-#    protocol = Protocol
-
-#    def getData(self, data):
-#        return twisted.internet.defer.succeed("Hello World!")
-
+logging.add("server", "server.log")
 
 class TextLogView:
     def __init__(self, eventmanager):
         self.eventmanager = eventmanager
         self.listen_for = events.Event
         self.eventmanager.registerlistener(self)
-        self.log = open("server.log", "a")
+        self.log = logging.Log("events.log")
 
     def notify(self, event):
-        self.log.write(repr(event))
+        self.log.write(str(event))
 
 
-class NetworkClientController(pb.Root):
-    def __init__(self, eventmanager, reg):
+class TimerController:
+    def __init__(self, eventmanager, reactor, reg):
         self.eventmanager = eventmanager
         self.eventmanager.registerlistener(self)
+        self.listen_for = events.ServerEvent
+
+        self.reactor = reactor
+        self.num_clients = 0
 
         self.shared_object_reg = reg
+
+    def app_started(self):
+        self.reactor.callLater(1, self.Tick)
+
+    def tick(self):
+        if self.num_clients == 0:
+            return
+
+        self.eventmanager.post(events.TickEvent())
+        self.reactor.callLater(1, self.Tick)
+
+    def post_mortem(event):
+        self.reactor.stop()
+        logging.write("server", "FATAL EVENT. STOPPING REACTOR."
+        x = logging.logs["server"]
+        pprint(self.shared_object_reg, x)
+
+    def notify(self, event):
+        if isinstance(event, events.ClientConnectEvent):
+            self.num_clients += 1
+            if self.num_clients == 1:
+                self.tick()
+        elif isinstance(event, events.ClientDisconnectEvent):
+            self.num_clients -= 1
+        elif isinstance(event, events.FatalEvent):
+            self.post_mortem(event)
+
+
+class NetworkClientController(pb.Avatar):
+    def __init__(self, eventmanager, avatarID, realm, reg):
+        self.eventmanager = eventmanager
+
+        self.avatarID = avatarID
+        self.realm = realm
+
+        self.shared_object_reg = reg
+
+    def client_disconnect(self):
+        self.eventmanager.post(events.ClientDisconnectEvent(self.avatarID))
+
+    def perspective_get_sync(self):
+        game = self.shared_object_reg.get_game()
+        if game == None:
+            raise Exception('Game unset')
+        gameID = id(game)
+        game_dict = game.get_state(self.shared_object_reg)
+
+        return [gameID, game_dict]
 
     def remote_client_connect(self, client):
         ev = events.ClientConnectEvent(client)
@@ -59,9 +97,6 @@ class NetworkClientController(pb.Root):
     def remote_network_event(self, event):
         self.eventmanager.post(event)
         return 1
-
-    def notify(self, event):
-        pass
 
 
 class NetworkClientView:
@@ -99,10 +134,24 @@ class NetworkClientView:
                 client.callRemote("server_event", event)
 
 
+class Model(dict):
+    def __init__(self, *args, **kwargs):
+        dict.__init__(self, *args, **kwargs)
+        self.game_key = None
+
+    def __setitem__(self, key, val):
+        dict.__setitem__(self, key, val)
+        if isinstance(val, game.Game):
+            self.game_key = key
+
+    def get_game(self):
+        return self[self.game_key]
+
+
 def startserver():
     from twisted.internet import reactor
     em = events.EventManager()
-    reg = {}
+    reg = Model()
 
     log = TextLogView(em)
     ncc = NetworkClientController(em, reg)
