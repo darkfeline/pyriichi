@@ -2,7 +2,7 @@
 
 import random
 
-import tiles
+import pyriichi.tiles as tiles
 
 class Wall:
     def __init__(self):

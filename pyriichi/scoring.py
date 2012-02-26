@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 """Hand Representations
 
@@ -20,7 +20,7 @@ count
 from __future__ import division
 import math
 
-import tiles
+import pyriichi.tiles as tiles
 
 def sort(hand):
     """Sort list of tiles in place."""

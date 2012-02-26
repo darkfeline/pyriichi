@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 from __future__ import division
 
-import scoring
+import pyriichi.scoring
 
 class Player:
     def __init__(self, wind_num, points=25000):
@@ -71,13 +71,13 @@ double
 
     def sort(self):
         """Sort player's hand in place."""
-        scoring.sort(self.hand)
+        pyriichi.scoring.sort(self.hand)
 
     def iscomplete(self):
-        return scoring.iscomplete(self.hand)
+        return pyriichi.scoring.iscomplete(self.hand)
 
     def waits(self):
-        return scoring.waits(self.hand)
+        return pyriichi.scoring.waits(self.hand)
 
     def chi(self, tiles):
         """Form a declared chi with tiles in hand.  When taking a discard, the
@@ -87,7 +87,7 @@ tiles
     list of tiles that form a chi
 
     """
-        if scoring.ischi(tiles):
+        if pyriichi.scoring.ischi(tiles):
             set = []
             for tile in tiles:
                 tile.chi = 1
@@ -106,7 +106,7 @@ tiles
     list of tiles that form a pon
 
     """
-        if scoring.ispon(tiles):
+        if pyriichi.scoring.ispon(tiles):
             set = []
             for tile in tiles:
                 tile.pon = 1
@@ -127,7 +127,7 @@ wall
     Wall instance to draw replacement tile
 
     """
-        if scoring.iskan(tiles):
+        if pyriichi.scoring.iskan(tiles):
             set = []
             for tile in tiles:
                 tile.kan = 1
@@ -151,7 +151,7 @@ wall
     Wall instance to draw replacement tile
 
 """
-        if scoring.iskan(tiles):
+        if pyriichi.scoring.iskan(tiles):
             set = []
             for tile in tiles:
                 tile.ckan = 1
@@ -211,7 +211,7 @@ wall
     def can_ckan(self):
         """Returns a list of lists of tiles with which the Player can declare
         concealed kan."""
-        count = scoring.tocount(self.hand)
+        count = pyriichi.scoring.tocount(self.hand)
         possible = []
         for tilenum, num in enumerate(count):
             if num == 4:
@@ -243,7 +243,7 @@ of the tile."""
         else:
             val = tile.value
             start = ["PINZU", "SOUZU", "MANZU"].index(tile.type) * 9
-            count = scoring.tocount(self.hand)[start:start + 9]
+            count = pyriichi.scoring.tocount(self.hand)[start:start + 9]
             count[val - 1] += 1
             a = 0
             result = 0
@@ -255,137 +255,6 @@ of the tile."""
                 else:
                     a = 0
             return result
-
-
-class AI:
-    def __init__(self, player):
-        self.player = player
-
-    def analyze_hand(self):
-        self.player.sort()
-        hand = self.player.hand
-        count = scoring.tocount(self.player.hand)
-
-        pairs = 0
-        trips = 0
-        quads = 0
-        for x in count:
-            if x >= 2:
-                pairs += 1
-                if >= 3:
-                    trips += 1
-                    if == 4:
-                        quades += 1
-
-        side = 0
-        switch = 0
-        for i, x in enumerate(count[:3 * 9]):
-            if x:
-                if not switch:
-                    switch = 1
-                else:
-                    side += 1
-                    if i % 9 == 0:
-                        switch = 0
-            else:
-                switch = 0
-
-        middle = 0
-        switch = 0
-        for i, x in enumerate(count[:3 * 9]):
-            if x:
-                if switch == 0 and i % 10 < 8:
-                    switch = 1
-                elif switch == 2:
-                    middle += 1
-                    if i % 9 == 0:
-                        switch = 0
-                    else:
-                        switch = 1
-            else:
-                if switch == 1:
-                    switch = 2
-
-    def calc_hand(self):
-        pass
-
-    def calc_discard(self):
-        pass
-
-    def calc_meld(self, tile):
-        pass
-
-
-class Hypothesis:
-    """Class that represents a hypothetical hand for AI."""
-    def __init__(self, hand, targets, out):
-        """hand
-    list of tiles already in hand
-targets
-    list of hypothetical tiles to wait for.  Either/or tiles are kept in a
-    sublist, e.g. if a hand needs either P3 or P6 for P3-5 or P4-6, then targets
-    would contain [P3, P6] as an element.
-out
-    list of tiles already discarded or melded
-
-"""
-        self.hand = hand
-        self.targets = targets
-
-    def calc(self, out):
-        """Returns a list of tuples, thus: (hypothetical hand, probability of
-hand, number of waits, score).
-
-out
-    list of tiles already discarded or melded
-    
-"""
-        final = self.gen_hands()
-        for i, hand in enumerate(final):
-            p = self.chance(hand, out)
-            c = len(self.targets)
-            s = scoring.highest_score(hand) # asdfasdf
-            final[i] = [hand, p, c, s]
-        return final
-
-    def gen_hands(self):
-        """Returns a list of final possible hands based on self.hand and
-        self.targets."""
-        final = []
-        current = self.hand[:]
-        count = 0
-        self._rparse(final, current, count)
-        return final
-
-    def _rparse(self, final, current, count):
-        """Recursive function for gen_hands()."""
-        for x in self.targets[count:]:
-            if isinstace(x, list):
-                self._rparse(final, current, count)
-                break
-            else:
-                current.append(x)
-                count += 1
-
-    def chance(self, final, out):
-        """Returns the number of tiles left that can finish hand.
-final
-    ONE possible hand
-out
-    list of tiles discarded/melded
-
-"""
-        outcount = scoring.tocount(out)
-        count = scoring.tocount(final)
-        total = sum(outcount)
-        current = 0
-        for i in range(34):
-            if count[i] > 0:
-                x = 4 - outcount[i]
-                if x < 1:
-                    return 0
-                current += x
-            return current
 
 
 class PlayerError(Exception):
