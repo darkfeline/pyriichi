@@ -43,13 +43,12 @@ class Wall:
         """Total number of tiles in hand, including all four wall sections."""
         return sum([len(wall) for wall in self.walls])
 
-
     def draw(self):
         """Take next tile in wall (taking into consideration all four sections
-and any breaks in wall.  If there are no more tiles in the wall, raise
-WallEmptyError."""
-        # in the beginning, if the dead wall was taken from the middle of a wall
-        # section, may not draw from beginning of wall section
+        and any breaks in wall.  If there are no more tiles in the wall, raise
+        WallEmptyError."""
+        # in the beginning, if the dead wall was taken from the middle of a
+        # wall section, may not draw from beginning of wall section
         if len(self) < 1:
             raise WallEmptyError()
         try:
@@ -136,11 +135,11 @@ class DeadWall:
     """DeadWall class; intended to be used as part of Wall class."""
     def __init__(self, tiles, main_wall):
         """tiles
-    list of tiles for dead wall
-main_wall
-    reference to main Wall instance that created this DeadWall instance
+            list of tiles for dead wall
+        main_wall
+            reference to main Wall instance that created this DeadWall instance
 
-"""
+        """
         self.wall = tiles
         self.doralv = 1
         self.main_wall = main_wall
@@ -168,8 +167,8 @@ main_wall
 
     def take(self):
         """Pops a tile for kan replacement, also taking replacement tile from
-main wall and adding dora.  If no more replacement tiles, raises
-ModelError."""
+        main wall and adding dora.  If no more replacement tiles, raises
+        ModelError."""
         if self.doralv < 5:
             self.doralv += 1
             self.wall.append(self.main_wall.rdraw())

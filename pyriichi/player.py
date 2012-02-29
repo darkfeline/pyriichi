@@ -7,11 +7,11 @@ import pyriichi.scoring
 class Player:
     def __init__(self, wind_num, points=25000):
         """wind_num
-    the player's wind from ['east', 'south', 'west', 'north']
-points
-    player points
+            the player's wind from ['east', 'south', 'west', 'north']
+        points
+            player points
 
-"""
+        """
         self.points = points
         self.wind = wind_num
         self.clear()
@@ -54,11 +54,11 @@ points
 
     def riichi(self, double=False):
         """Declare riichi.  Raises RiichiError if riichi is already declared.
-        
-double
-    include yaku for double riichi.  Defaults to False. 
-    
-"""
+
+        double
+            include yaku for double riichi.  Defaults to False. 
+
+        """
         if self.riichi:
             raise RiichiError("already declared")
         if self.points >= 1000:
@@ -83,10 +83,10 @@ double
         """Form a declared chi with tiles in hand.  When taking a discard, the
         tile should be added to the Player's hand prior to calling this method.
 
-tiles
-    list of tiles that form a chi
+        tiles
+            list of tiles that form a chi
 
-    """
+        """
         if pyriichi.scoring.ischi(tiles):
             set = []
             for tile in tiles:
@@ -102,10 +102,10 @@ tiles
         """Form a declared pon with tiles in hand.  When taking a discard, the
         tile should be added to the Player's hand prior to calling this method.
 
-tiles
-    list of tiles that form a pon
+        tiles
+            list of tiles that form a pon
 
-    """
+        """
         if pyriichi.scoring.ispon(tiles):
             set = []
             for tile in tiles:
@@ -121,12 +121,12 @@ tiles
         """Form a declared kan with tiles in hand.  When taking a discard, the
         tile should be added to the Player's hand prior to calling this method.
 
-tiles
-    list of tiles that form a kan
-wall
-    Wall instance to draw replacement tile
+        tiles
+            list of tiles that form a kan
+        wall
+            Wall instance to draw replacement tile
 
-    """
+        """
         if pyriichi.scoring.iskan(tiles):
             set = []
             for tile in tiles:
@@ -145,12 +145,12 @@ wall
     def ckan(self, tiles, wall):
         """Declares a concealed kan.
         
-tiles
-    list of tiles that form a kan
-wall
-    Wall instance to draw replacement tile
+        tiles
+            list of tiles that form a kan
+        wall
+            Wall instance to draw replacement tile
 
-"""
+        """
         if pyriichi.scoring.iskan(tiles):
             set = []
             for tile in tiles:
@@ -169,12 +169,12 @@ wall
     def addkan(self, tile, wall):
         """Adds tile to declared kan.
 
-tile
-    tile to add to kan
-wall
-    Wall to draw replacement tile
+        tile
+            tile to add to kan
+        wall
+            Wall to draw replacement tile
 
-"""
+        """
         if self.can_addkan(tile):
             self.hand.remove(tile)
             for x in self.sets:
@@ -228,7 +228,7 @@ wall
 
     def can_addkan(self, tile):
         """Tests if Player can addkan(tile).  Returns True if Player has a pon
-of the tile."""
+        of the tile."""
         for x in self.sets:
             if len(x) == 3 and x[0] == x[1] == x[2] == tile:
                 return True

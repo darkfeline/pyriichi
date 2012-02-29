@@ -6,50 +6,41 @@ import pyriichi.player
 import pyriichi.wall
 
 class Hand:
+
     """Hand Flow Diagram
 
-__init__()
-deal()
-    draw()<---------
-    |-->addkan()   |    
-    |   |-->...    |
-    |-->ckan()     |
-    |   |-->...    |
-    --->agari()    |
-    discard()      |
-    |-->chi()------|
-    |-->pon()------|
-    |-->kan()------|
-    --->agari()    |
-    cycle()---------
-abort()
+    __init__() deal() draw()<--------- |-->addkan()   |    |   |-->...    |
+    |-->ckan()     | |   |-->...    | --->agari()    | discard()      |
+    |-->chi()------| |-->pon()------| |-->kan()------| --->agari()    |
+    cycle()--------- abort()
 
-Implementation notes
-    Currently, only one person can declare agari.  Whoever is closest to east
-    wins Nagashi Mangan if there are two players who can win on it.  
+    Implementation notes Currently, only one person can declare agari.  Whoever
+    is closest to east wins Nagashi Mangan if there are two players who can win
+    on it.  
 
-"""
+    """
+
     def __init__(self, round_wind, dealer, honba, riichi_pot, players):
         """round_wind
-    current round wind as an int in range(4)
-dealer
-    current dealer as int in range(4)
-honba
-    number of repeat counters
-riichi_pot
-    points in riichi pot
-players
-    original player list.  Hand will reorder hand internally so that the dealer is the
-    first item.
+        current round wind as an int in range(4)
+        dealer
+            current dealer as int in range(4)
+        honba
+            number of repeat counters
+        riichi_pot
+            points in riichi pot
+        players
+            original player list.  Hand will reorder hand internally so that
+            the dealer is the first item.
 
-Attributes set after winning:
+        Attributes set after winning:
 
-scores
-    changes in score for all players
-yaku
-    list of yaku
+        scores
+            changes in score for all players
+        yaku
+            list of yaku
 
-"""
+        """
         self.round_wind = round_wind
         self.honba = honba
         self.riichi_pot = riichi_pot
@@ -95,12 +86,12 @@ yaku
 
     def discard(self, tile):
         """If draw flag is set, discard tile for current player and set discard
-flag.
+        flag.
 
-tile
-    reference to tile to discard
+        tile
+            reference to tile to discard
 
-"""
+        """
         if self.step == 1:
             player = self.players[self.current_player]
             player.discard(tile)
@@ -111,13 +102,14 @@ tile
     def agari(self, player):
         """Player calls win on current player's discard or self-draw.
 
-Finds and scores all possible sets and uses highest score.  Sets self.scores
-with array of score differences to be used by parent Game class.  
+        Finds and scores all possible sets and uses highest score.  Sets
+        self.scores with array of score differences to be used by parent Game
+        class.  
 
-player
-    player by index number
-    
-""" 
+        player
+            player by index number
+
+        """
         playeri = self.players[player]
         east = 0
         if player is self.players[0]:
@@ -245,11 +237,11 @@ player
 
     def pon(self, player):
         """Player calls current player's discard.
-        
-player
-    player by index
-    
-"""
+
+        player
+            player by index
+
+        """
         x = self.players[player]
         # hide in current player's discards
         self.current_discard.hidden = 1
@@ -272,12 +264,13 @@ player
             self.first_round = 0
 
     def kan(self, player):
-        """Player calls current player's discard.  Use ckan() for concealed kan.  
-        
-player
-    player by index
-    
-"""
+        """Player calls current player's discard.  Use ckan() for concealed
+        kan.  
+
+        player
+            player by index
+            
+        """
         x = self.players[player]
         # hide in current player's discards
         self.current_discard.hidden = 1
@@ -302,11 +295,11 @@ player
 
     def ckan(self, tiles):
         """Current player declares concealed kan.
-        
-tiles
-    list of tiles that compose the kan
-    
-"""
+
+        tiles
+            list of tiles that compose the kan
+            
+        """
         if len(tiles) == 4:
             player = self.players[self.current_player]
             player.ckan(tiles, self.wall)
@@ -321,11 +314,11 @@ tiles
 
     def chi(self, tiles):
         """Player calls current player's discard.
-        
-tiles
-    list of two tiles with which the current discard is to form a chi
 
-"""
+        tiles
+            list of two tiles with which the current discard is to form a chi
+
+        """
         x = self.players[(self.current_player + 1) % 4]
         # hide in current player's discards
         self.current_discard.hidden = 1
@@ -372,7 +365,7 @@ class Game:
 
     def cycle(self):
         """Cycles current dealer and each player's wind.  If it is again the
-original east's turn, cycle round wind."""
+        original east's turn, cycle round wind."""
         self.dealer += 1
         self.dealer %= 4
         for player in self.players:

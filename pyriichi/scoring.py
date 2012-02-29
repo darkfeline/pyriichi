@@ -42,7 +42,8 @@ def tocount(hand):
     return count
 
 def makesets(hand):
-    """Make sets representations from hand.  Returns a list of lists of tiles.  """
+    """Make sets representations from hand.  Returns a list of lists of tiles.
+    """
     sort(hand)
     possible = []
     
@@ -143,23 +144,23 @@ def has_chi(hand, tile):
 
 def calc(fu, han, east, type, honba=0):
     """Calculates score from fu, han, taking into account who won and what type
-of win.  For tsumo non-east, returns a tuple where the first item is score for
-non-East, and the second item is score for East.
+    of win.  For tsumo non-east, returns a tuple where the first item is score
+    for non-East, and the second item is score for East.
 
-Formula
-    fu is rounded up to the nearest 10.  The base score is fu * 2 ** (2 + han),
-    which is divided into 4 or 2:1:1 or 2:2:2 depending on the type of win.
-    Each portion is then rounded up to the nearest 100.  Honba points are then
-    added.
+    Formula
+        fu is rounded up to the nearest 10.  The base score is fu * 2 ** (2 +
+        han), which is divided into 4 or 2:1:1 or 2:2:2 depending on the type
+        of win.  Each portion is then rounded up to the nearest 100.  Honba
+        points are then added.
 
-east
-    1 if East wins, 0 otherwise
-type
-    type of win, i.e. ron, tsumo
-honba
-    number of repeat counters
+    east
+        1 if East wins, 0 otherwise
+    type
+        type of win, i.e. ron, tsumo
+    honba
+        number of repeat counters
 
-"""
+    """
     score = 0
     # double yakuman
     if han >= 26:
@@ -212,11 +213,11 @@ honba
 
 def matchtype(hand, *types, any=0):
     """Checks if all tiles in hand matches one type of the types provided.  If
-there's a match, returns matched type, else returns nothing.  types are
-strings.  If any is set to 1, matchtype will attempt to match any type e.g.
-matchtype(hand, 'a', 'b', any=1) will match a hand with tiles of only 'a' and
-'b' types, as opposed to matchtype(hand, 'a', 'b', any=0), which matches a hand
-of all 'a' or all 'b' only."""
+    there's a match, returns matched type, else returns nothing.  types are
+    strings.  If any is set to 1, matchtype will attempt to match any type e.g.
+    matchtype(hand, 'a', 'b', any=1) will match a hand with tiles of only 'a'
+    and 'b' types, as opposed to matchtype(hand, 'a', 'b', any=0), which
+    matches a hand of all 'a' or all 'b' only."""
     if any:
         count = 0
         for type in [x.type for x in hand]:
@@ -231,7 +232,7 @@ of all 'a' or all 'b' only."""
 
 def concealed(*sets):
     """Returns True if all sets are concealed, False otherwise. If there's
-only one set, takes into account the last tile."""
+    only one set, takes into account the last tile."""
     if len(sets) == 1:
         for tile in sets[0]:
             if not (hasattr(tile, "last") and hasattr(tile."ron")):
@@ -297,12 +298,12 @@ def isnagashi(discards):
 
 def iscomplete(hand):
     """Checks hand recursively for completeness. Wrapper for recursive
-function.
+    function.
 
-hand
-    list of tiles in hand representation
-    
-"""
+    hand
+        list of tiles in hand representation
+
+    """
     # assemble hand as list representation
     if total == 14:
         if is13orphan(hand):
@@ -314,12 +315,12 @@ hand
 def _riscomplete(hand, store):
     """Recursive function to check for hand completeness.  
 
-hand
-    list of tiles in count representation currently being checked
-store
-    list of tiles in count representation currently taken out
+    hand
+        list of tiles in count representation currently being checked
+    store
+        list of tiles in count representation currently taken out
 
-"""
+    """
     total = sum(hand)
     # is a pair
     if total == 2:
@@ -368,7 +369,7 @@ store
 
 def ischi(set):
     """Tests if the given list of tiles form a chi.  If it does, returns the
-lowest tile, else returns nothing."""
+    lowest tile, else returns nothing."""
     if len(set) == 3:
         if matchtype(set, 'PINZU', 'SOUZU', 'MANZU'):
             sort(set)
@@ -378,7 +379,7 @@ lowest tile, else returns nothing."""
 
 def ispon(set):
     """Tests if the given list of tiles form a pon.  If it does, returns the
-tile, else returns nothing."""
+    tile, else returns nothing."""
     if len(set) == 3:
         temp = [tile.cmpval for tile in set]
         if temp.count(temp[0]) == 3:
@@ -387,7 +388,7 @@ tile, else returns nothing."""
 
 def iskan(set):
     """Tests if the given list of tiles form a kan.  If it does, returns the
-tile, else returns nothing."""
+    tile, else returns nothing."""
     if len(set) == 4:
         temp = [tile.cmpval for tile in set]
         if temp.count(temp[0]) == 4:
@@ -396,7 +397,7 @@ tile, else returns nothing."""
 
 def ispair(set):
     """Tests of the given list of tiles form a pair.  If it does, returns the
-tile, else returns nothing."""
+    tile, else returns nothing."""
     if len(set) == 2 and set[0].cmpval == set[1].cmpval:
         return set[0]
     else:
@@ -404,8 +405,10 @@ tile, else returns nothing."""
 
 def waits(hand):
     """Finds the waits of the list of tiles provided, in hand format.  Waits are
-returned as a list of CLASS OBJECTS, NOT INSTANCES.  If no waits, returns an
-empty list."""
+    returned as a list of CLASS OBJECTS, NOT INSTANCES.  If no waits, returns
+    an empty list.
+    
+    """
     waits = []
     for suit in SUITS:
         for tile in suit:
@@ -418,45 +421,45 @@ empty list."""
 
 def score(east, winds, *sets, honba=0, bonus=[], dora=[], ura=[]):
     """Returns (score, yaku), where score is the score and yaku is the list of
-yaku matched, in all lower case, in Japanese.  For tsumo non-East, returns a
-tuple where the first item is score for non-East, and the second item is score
-for East.
+    yaku matched, in all lower case, in Japanese.  For tsumo non-East, returns
+    a tuple where the first item is score for non-East, and the second item is
+    score for East.
 
-Assumes hand is complete and separated correctly.  Seven Pairs must be passed as
-seven lists.  
+    Assumes hand is complete and separated correctly.  Seven Pairs must be
+    passed as seven lists.  
 
-Special wins han, such as Blessings and Nagashi Mangan, should be added to bonus
-and will be handled appropriately .  Haitei, Robbbing a Kong, Rinchan Kaihou,
-Riichi, Ippatsu, Double Riichi should be added to bonus.  Dora indicator tiles
-should be added to dora and ura-dora to ura.
+    Special wins han, such as Blessings and Nagashi Mangan, should be added to
+    bonus and will be handled appropriately .  Haitei, Robbbing a Kong, Rinchan
+    Kaihou, Riichi, Ippatsu, Double Riichi should be added to bonus.  Dora
+    indicator tiles should be added to dora and ura-dora to ura.
 
-east 
-    1 if East wins, 0 otherwise
-winds
-    Round and player winds.  If East round Dealer, use ['E', 'E']
-sets
-    lists of tile parts of hand.
-honba
-    number of repeat counters
-bonus
-    other yaku; list in lower case in Japanese
-    possible yaku: 
-        nagashi mangan
-        tenhou
-        chihou
-        renhou
-        riichi
-        ippatsu
-        daburu riichi
-        rinchan kaihou
-        chan kan
-        haitei
-dora
-    list of dora indicators
-ura
-    list of ura-dora indicators
-    
-""" 
+    east 
+        1 if East wins, 0 otherwise
+    winds
+        Round and player winds.  If East round Dealer, use ['E', 'E']
+    sets
+        lists of tile parts of hand.
+    honba
+        number of repeat counters
+    bonus
+        other yaku; list in lower case in Japanese
+        possible yaku: 
+            nagashi mangan
+            tenhou
+            chihou
+            renhou
+            riichi
+            ippatsu
+            daburu riichi
+            rinchan kaihou
+            chan kan
+            haitei
+    dora
+        list of dora indicators
+    ura
+        list of ura-dora indicators
+
+    """ 
     # Nagashi Mangan
     if 'nagashi mangan' in bonus:
         return calc(20, 5, east, 'tsumo', honba), ['nagashi mangan']
@@ -969,35 +972,35 @@ ura
 def highest_score(east, winds, hand, sets, honba=0, bonus=[], dora=[], ura=[]):
     """Returns the highest score from score().
 
-east 
-    1 if East wins, 0 otherwise
-winds
-    Round and player winds.  If East round Dealer, use ['E', 'E']
-hand
-    list of tiles; player's hand
-sets
-    list of player's melds
-honba
-    number of repeat counters
-bonus
-    other yaku; list in lower case in Japanese
-    possible yaku: 
-        nagashi mangan
-        tenhou
-        chihou
-        renhou
-        riichi
-        ippatsu
-        daburu riichi
-        rinchan kaihou
-        chan kan
-        haitei
-dora
-    list of dora indicators
-ura
-    list of ura-dora indicators
-    
-""" 
+    east 
+        1 if East wins, 0 otherwise
+    winds
+        Round and player winds.  If East round Dealer, use ['E', 'E']
+    hand
+        list of tiles; player's hand
+    sets
+        list of player's melds
+    honba
+        number of repeat counters
+    bonus
+        other yaku; list in lower case in Japanese
+        possible yaku: 
+            nagashi mangan
+            tenhou
+            chihou
+            renhou
+            riichi
+            ippatsu
+            daburu riichi
+            rinchan kaihou
+            chan kan
+            haitei
+    dora
+        list of dora indicators
+    ura
+        list of ura-dora indicators
+        
+    """ 
     possible = makesets(hand)
     # Find all possible scores
     scorelist = []

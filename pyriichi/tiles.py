@@ -41,54 +41,54 @@
 
 class Tile:
     """Tile class.
-Universal attributes
-    name
-        Name of tile
-    type
-        suit i.e. "PINZU", "SOUZU", "MANZU", "WINDS", "DRAGONS"
-    cmpval
-        unique value for each tile, for sorting
+    Universal attributes
+        name
+            Name of tile
+        type
+            suit i.e. "PINZU", "SOUZU", "MANZU", "WINDS", "DRAGONS"
+        cmpval
+            unique value for each tile, for sorting
 
-    For numbered Tiles:
-    value
-        numeric value of tile
+        For numbered Tiles:
+        value
+            numeric value of tile
 
-Flags
-    Flags are set to 1 arbitrarily or unset to denote attributes of tiles.
+    Flags
+        Flags are set to 1 arbitrarily or unset to denote attributes of tiles.
 
-    Properties
-        green
-        terminal
-        red
+        Properties
+            green
+            terminal
+            red
 
-    Scoring
-        chi
-            Tile is part of declared chi
-        pon
-            Tile is part of declared pon
-        kan
-            Tile is part of open declared kan
-        ckan
-            Tile is part of concealed declared kan
-        addedkan
-            Tile is part of a declared pon that has been extended into a kan.
-            pon flags are unset (del tile.pon) and kan flags are set for ease of
-            scoring.  
-        last
-            Last tile; winning tile.  In addition, has either the tag ron or
+        Scoring
+            chi
+                Tile is part of declared chi
+            pon
+                Tile is part of declared pon
+            kan
+                Tile is part of open declared kan
+            ckan
+                Tile is part of concealed declared kan
+            addedkan
+                Tile is part of a declared pon that has been extended into a
+                kan.  pon flags are unset (del tile.pon) and kan flags are set
+                for ease of scoring.  
+            last
+                Last tile; winning tile.  In addition, has either the tag ron
+                or tsumo
+            ron
+                used with last; win by discard
             tsumo
-        ron
-            used with last; win by discard
-        tsumo
-            used with last; win by self-pick
+                used with last; win by self-pick
 
-    Other
-        hidden
-            This flag is set when a player's discard has been claimed.  Used to
-            facilitate calculating furiten but allow view to display player
-            discards accordingly.  
+        Other
+            hidden
+                This flag is set when a player's discard has been claimed.
+                Used to facilitate calculating furiten but allow view to
+                display player discards accordingly.  
 
-"""
+    """
     def __init__(self, name, type, cmpval):
         self.name = name
         self.type = type
